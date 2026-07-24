@@ -1,0 +1,116 @@
+generator client {
+  provider = "prisma-client-js"
+  engineType = "library"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// User model for Admin Panel Authentication
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String?
+  password  String   // Hashed password
+  role      Role     @default(ADMIN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  blogs     Blog[]
+}
+
+enum Role {
+  ADMIN
+  EDITOR
+}
+
+// Portfolio model for Case Studies
+model Portfolio {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  description String   @db.Text
+  clientName  String?
+  imageUrl    String
+  desktopUrl  String?
+  mobileUrl   String?
+  techStack   String[] 
+  isFeatured  Boolean  @default(false)
+  
+  categoryId  String
+  category    Category @relation(fields: [categoryId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  id          String      @id @default(cuid())
+  name        String      @unique
+  slug        String      @unique
+  portfolios  Portfolio[]
+}
+
+// Blog model for SEO & Edukasi UMKM
+model Blog {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  content     String   @db.Text
+  excerpt     String   @db.Text
+  coverImage  String?
+  
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id])
+  
+  seoTitle    String?
+  seoDesc     String?
+  published   Boolean  @default(false)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Service model for dynamic services (Website UMKM, Sistem Rental, dll)
+model Service {
+  id          String   @id @default(cuid())
+  name        String
+  slug        String   @unique
+  icon        String
+  shortDesc   String
+  fullContent String   @db.Text
+  priceStart  Int?
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Pricing model for Packages (Company Profile vs Website UMKM dll)
+model PricingTier {
+  id          String   @id @default(cuid())
+  name        String
+  price       Int
+  isPopular   Boolean  @default(false)
+  features    String[] // List of features
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// FAQ model
+model Faq {
+  id          String   @id @default(cuid())
+  question    String
+  answer      String   @db.Text
+  order       Int      @default(0)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+// Settings model for Global Configurations (Banner, Contact, Meta Data)
+model Settings {
+  id          String   @id @default(cuid())
+  key         String   @unique
+  value       String   @db.Text
+}

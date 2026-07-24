@@ -1,0 +1,378 @@
+.hero {
+  position: relative;
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  padding: clamp(6rem, 10vw, 8rem) 0 0; /* Removed bottom padding so mockup touches the bottom edge */
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.bgElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 0;
+  /* Grid pattern */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px; /* Larger grid for breathing room */
+  background-position: center center;
+}
+
+.glow1 {
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(0,0,0,0) 70%);
+  border-radius: 50%;
+}
+
+.glow2 {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 70vw;
+  height: 50vw;
+  background: radial-gradient(circle, rgba(212,175,55,0.2) 0%, rgba(0,0,0,0) 65%); /* Stronger, wider glow */
+  border-radius: 50%;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 4vw, 2.5rem); /* Tighter gap */
+  align-items: center;
+}
+
+.textContent {
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  font-size: 0.875rem;
+  color: var(--color-accent);
+  font-weight: 500;
+  backdrop-filter: blur(4px);
+}
+
+.title {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  color: var(--color-secondary);
+  letter-spacing: -0.03em; /* Tighter tracking for premium feel */
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 4.5rem;
+  }
+}
+
+.highlight {
+  color: var(--color-accent);
+  background: linear-gradient(90deg, #d4af37 0%, #f3e5ab 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--text-tertiary);
+  max-width: 600px;
+  line-height: 1.6;
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: 1.25rem;
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  width: 100%;
+  margin-top: var(--space-4);
+}
+
+@media (min-width: 640px) {
+  .actions {
+    flex-direction: row;
+    justify-content: center;
+    width: auto;
+  }
+}
+
+.mockupContainer {
+  position: relative;
+  width: 100%;
+  max-width: 1100px; /* Dominates the screen */
+  perspective: 1000px;
+  margin-top: -1rem; /* Pull up closer to text */
+  margin-bottom: -4rem; /* Extend beyond section bounds slightly */
+}
+
+.dashboardMockup {
+  background: rgba(17, 17, 17, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Brighter border */
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0; /* Flat bottom */
+  backdrop-filter: blur(32px); /* Smoother glass */
+  -webkit-backdrop-filter: blur(32px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 -20px 60px -20px rgba(212, 175, 55, 0.15); /* Premium inner glow */
+  overflow: hidden;
+  transform: rotateX(5deg) translateY(20px);
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.dashboardMockup:hover {
+  transform: rotateX(0deg) translateY(0);
+}
+
+.mockupHeader {
+  height: 3rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  gap: var(--space-2);
+  background: rgba(0,0,0,0.2);
+}
+
+.mockupDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ff5f56;
+}
+.mockupDot:nth-child(2) { background: #ffbd2e; }
+.mockupDot:nth-child(3) { background: #27c93f; }
+
+.mockupBody {
+  padding: var(--space-5);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: var(--space-5);
+  height: 360px;
+}
+
+@media (max-width: 768px) {
+  .mockupBody {
+    grid-template-columns: 1fr;
+    height: 300px;
+  }
+}
+
+.mockupSidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.mockupSkeletonLine {
+  height: 12px;
+  border-radius: var(--radius-full);
+  background: rgba(255,255,255,0.1);
+}
+
+.mockupMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.mockupChart {
+  flex-grow: 1;
+  background: linear-gradient(180deg, rgba(212,175,55,0.1) 0%, rgba(212,175,55,0) 100%);
+  border: 1px solid rgba(212,175,55,0.2);
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.mockupChartLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  border-top: 2px solid var(--color-accent);
+  background: linear-gradient(180deg, rgba(212,175,55,0.2) 0%, rgba(0,0,0,0) 100%);
+  clip-path: polygon(0 40%, 20% 60%, 40% 20%, 60% 50%, 80% 10%, 100% 30%, 100% 100%, 0 100%);
+}
+
+.floatingCard {
+  position: absolute;
+  background: rgba(20, 20, 20, 0.6);
+  border: 1px solid rgba(255,255,255,0.1);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius-xl);
+  padding: var(--space-4) var(--space-6);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  z-index: 20;
+}
+
+.floatingCard1 {
+  top: 15%;
+  right: -8%;
+  animation: float 7s ease-in-out infinite;
+}
+
+.floatingCard2 {
+  bottom: 15%;
+  left: -8%;
+  animation: float 9s ease-in-out infinite reverse;
+}
+
+@media (max-width: 1024px) {
+  .floatingCard {
+    display: none;
+  }
+}
+
+.iconCircle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.iconCircle.green {
+  background: rgba(16,185,129,0.2);
+  color: #10b981;
+}
+.iconCircle.gold {
+  background: rgba(212,175,55,0.2);
+  color: var(--color-accent);
+}
+
+.floatText h4 {
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+  margin-bottom: 2px;
+}
+.floatText p {
+  font-size: 0.75rem;
+  color: var(--text-tertiary);
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+/* Stats */
+.stats {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-12);
+  width: 100%;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.statValue {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-secondary);
+}
+
+.statLabel {
+  font-size: 0.875rem;
+  color: var(--text-tertiary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ========================================================
+   MOBILE OPTIMIZATION (STRICTLY < 768px)
+   ======================================================== */
+@media (max-width: 767px) {
+  .hero {
+    /* Navbar is 5rem + 12px = 92px. Use safe-area for notch protection */
+    padding: calc(5rem + 12px + env(safe-area-inset-top, 0px)) 0 0; 
+    height: auto;
+    min-height: 0;
+    align-items: flex-start;
+  }
+  .content {
+    padding-top: 0;
+    gap: 24px; /* Space from Secondary CTA to MockupContainer */
+    width: 100%;
+    /* Prevents horizontal overflow on small devices like 320px */
+    padding-left: clamp(1rem, 4vw, 1.5rem);
+    padding-right: clamp(1rem, 4vw, 1.5rem);
+  }
+  .textContent {
+    gap: 0;
+    width: 100%;
+  }
+  .badge {
+    margin-bottom: 16px;
+    font-size: clamp(0.75rem, 3.5vw, 0.875rem);
+  }
+  .title {
+    /* Fluid typography ensures 320px to 767px scales perfectly (max 3 lines) */
+    font-size: clamp(1.75rem, 7.5vw, 2.25rem);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    word-wrap: break-word;
+  }
+  .description {
+    font-size: clamp(0.875rem, 4vw, 0.95rem);
+    line-height: 1.45;
+    margin-bottom: 24px;
+    padding: 0; /* Clear default padding if any */
+  }
+  .actions {
+    margin-top: 0;
+    gap: 16px;
+    width: 100%;
+  }
+  .actions button {
+    width: 100%;
+  }
+  .mockupContainer {
+    margin-top: 0;
+    margin-bottom: -15%;
+    transform: scale(0.9); /* Scale down to prevent overflow on very narrow phones */
+    transform-origin: top center;
+    width: 100%;
+  }
+}

@@ -1,0 +1,322 @@
+.section {
+  padding: clamp(3.5rem, 6vw, 5.5rem) 0;
+  background-color: var(--bg-secondary);
+}
+
+.sectionHeaderLeft {
+  text-align: left;
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+  max-width: 600px;
+}
+
+.subtitle {
+  color: var(--color-accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.875rem;
+  margin-bottom: var(--space-4);
+  display: block;
+}
+
+.title {
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
+  margin-bottom: var(--space-4);
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+/* Unified Grid Container */
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .servicesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cardWrapper {
+  height: 100%;
+}
+
+@media (min-width: 768px) {
+  .wrapperFeatured {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .wrapperFeatured {
+    grid-column: span 2;
+  }
+}
+
+/* Base Card Styles */
+.serviceCard {
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  z-index: 1;
+  height: 100%;
+}
+
+.serviceCard::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: var(--radius-xl);
+  background: radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.08) 0%, transparent 60%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.serviceCard:hover::before {
+  opacity: 1;
+}
+
+.serviceCard:hover {
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1), 0 0 20px rgba(212, 175, 55, 0.05);
+  transform: translateY(-6px);
+}
+
+/* Featured Card (Overrides) */
+.cardFeatured {
+  border-color: rgba(212, 175, 55, 0.4);
+  box-shadow: 0 10px 30px -5px rgba(212, 175, 55, 0.1);
+  /* padding remains consistent */
+}
+
+.featuredSubtextGold {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.featuredContentGrid {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.featuredLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.featuredRight {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+@media (min-width: 1024px) {
+  .featuredContentGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .featuredBadge {
+    top: clamp(1.5rem, 4vw, 2.5rem);
+    right: clamp(1.5rem, 4vw, 2.5rem);
+  }
+}
+
+/* Elements inside Card */
+.iconWrapper {
+  width: 40px;
+  height: 40px;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+  margin-bottom: var(--space-4);
+}
+
+.serviceCard:hover .iconWrapper {
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  border-color: var(--color-primary);
+  transform: scale(1.05);
+}
+
+.cardHeader {
+  margin-bottom: var(--space-4);
+}
+
+.itemTitle {
+  font-size: 1.25rem;
+  margin-bottom: var(--space-2);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  padding-right: 120px; /* Safe padding for badge on mobile if needed */
+}
+
+@media (min-width: 1024px) {
+  .itemTitle {
+    padding-right: 0; /* Badge is on the right column */
+  }
+}
+
+.itemDesc {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.cardBody {
+  margin-bottom: var(--space-6);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.benefitList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.benefitList li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.checkIcon {
+  color: var(--color-success);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.itemFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: auto;
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--border-subtle);
+  transition: border-color 0.4s ease;
+  font-size: 0.95rem;
+}
+
+.serviceCard:hover .itemFooter {
+  border-color: rgba(212, 175, 55, 0.2);
+}
+
+.arrowIcon {
+  color: var(--text-tertiary);
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.4s ease;
+}
+
+.serviceCard:hover .arrowIcon {
+  transform: translateX(6px);
+  color: var(--color-accent);
+}
+
+/* ========================================================
+   MOBILE OPTIMIZATION (STRICTLY < 768px)
+   ======================================================== */
+@media (max-width: 767px) {
+  .section {
+    padding: clamp(2rem, 5vw, 2.5rem) 0;
+  }
+  
+  /* Services/Features Grid - VERTICAL COMPACT (V3) */
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .serviceCard {
+    padding: 1rem;
+    height: auto;
+    min-height: 0;
+  }
+  .cardHeader {
+    margin-bottom: 0.5rem;
+  }
+  .cardBody {
+    margin-bottom: 0.5rem;
+  }
+  .itemTitle {
+    padding-right: 0;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+  .itemDesc {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+  .iconWrapper {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.5rem;
+  }
+  .iconWrapper svg {
+    width: 18px;
+    height: 18px;
+  }
+  .benefitList {
+    gap: 0.25rem;
+  }
+  .benefitList li {
+    font-size: 0.85rem;
+    gap: 0.25rem;
+  }
+  .itemFooter {
+    padding-top: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+.featuredDivider {
+  display: none;
+/* Ensure the divider is not needed if we just use the itemFooter's border-top, 
+   but keeping this if custom spacing is needed */
