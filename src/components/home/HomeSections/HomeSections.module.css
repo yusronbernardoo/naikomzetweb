@@ -1001,13 +1001,13 @@
 
 .clientLogoImageWrapper {
   position: relative;
-  /* Base size for scaling */
-  width: clamp(120px, 14vw, 160px);
-  height: clamp(50px, 6vw, 70px);
+  /* Scale width and height layout to prevent clipping on overflow boundaries */
+  width: calc(clamp(120px, 14vw, 160px) * var(--optical-scale, 1));
+  height: calc(clamp(50px, 6vw, 70px) * var(--optical-scale, 1));
   display: flex;
   justify-content: center;
   align-items: center;
-  transform: scale(var(--optical-scale, 1));
+  flex-shrink: 0;
 }
 
 .clientLogoImage {
