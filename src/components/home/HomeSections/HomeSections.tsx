@@ -631,18 +631,7 @@ export function HomePortfolio() {
           </AnimatePresence>
         </div>
 
-        {activeFilter === "Semua" && (
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            style={{ display: 'flex', justifyContent: 'center', marginTop: 'var(--space-10)' }}
-          >
-            <a href="/portfolio" style={{ textDecoration: 'none' }}>
-              <Button size="lg" variant="outline" style={{ borderColor: 'var(--border-strong)', color: 'var(--text-secondary)' }}>
-                Lihat Semua Portfolio <ArrowRight size={18} style={{ display: 'inline', marginLeft: '8px' }} />
-              </Button>
-            </a>
-          </motion.div>
-        )}
+
       </div>
     </section>
   );
