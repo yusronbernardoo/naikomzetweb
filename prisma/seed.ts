@@ -36,7 +36,7 @@ async function main() {
       description: 'Toko sparepart online dengan balas pesan otomatis.',
       imageUrl: '/portfolio/sahabatmotor.png',
       desktopUrl: 'https://sahabatmotor.web.id/',
-      techStack: JSON.stringify(['Katalog Sparepart', 'Pesan Langsung', 'Admin Pintar (AI)']),
+      techStack: ['Katalog Sparepart', 'Pesan Langsung', 'Admin Pintar (AI)'],
       categoryId: cat1.id
     }
   })
@@ -50,7 +50,7 @@ async function main() {
       description: 'Terima pesanan & pembayaran otomatis 24 jam.',
       imageUrl: '/portfolio/najey.png',
       desktopUrl: 'https://spectacular-valkyrie-7a996c.netlify.app/',
-      techStack: JSON.stringify(['Terima Pesanan', 'Barar Otomatis', 'Rekap Harian']),
+      techStack: ['Terima Pesanan', 'Barar Otomatis', 'Rekap Harian'],
       categoryId: cat2.id
     }
   })
@@ -64,7 +64,7 @@ async function main() {
       description: 'Kasir otomatis potong stok & laporan harian.',
       imageUrl: '/portfolio/nafafrozenfood.png',
       desktopUrl: 'https://gleaming-biscochitos-a7a230.netlify.app/',
-      techStack: JSON.stringify(['Alat Kasir', 'Cek Stok', 'Laporan Keuntungan']),
+      techStack: ['Alat Kasir', 'Cek Stok', 'Laporan Keuntungan'],
       categoryId: cat3.id
     }
   })
@@ -78,7 +78,7 @@ async function main() {
       description: 'Kasir pintar terhubung langsung ke layar dapur.',
       imageUrl: '/portfolio/mbakcindy.png',
       desktopUrl: 'https://dulcet-strudel-4e6ab7.netlify.app/',
-      techStack: JSON.stringify(['Kasir Warung', 'Layar Dapur', 'Menu Digital']),
+      techStack: ['Kasir Warung', 'Layar Dapur', 'Menu Digital'],
       categoryId: cat4.id
     }
   })
