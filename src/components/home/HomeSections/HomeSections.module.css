@@ -976,31 +976,28 @@
    SOCIAL PROOF
 ------------------------------------------- */
 .clientLogos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-items: center;
-  align-items: center;
-  row-gap: 2rem;
-  column-gap: 1rem;
   margin-top: var(--space-4);
   margin-bottom: clamp(2rem, 5vw, 3rem);
+  overflow: hidden; /* Hide the scroll bar for marquee */
+  width: 100%;
 }
 
-@media (min-width: 640px) {
-  .clientLogos {
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: 3rem;
-  }
+.clientLogosTrack {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  gap: 2rem;
+  /* 60fps smooth animation */
+  animation: marquee 15s linear infinite;
+  will-change: transform;
 }
 
-@media (min-width: 1024px) {
-  .clientLogos {
-    grid-template-columns: repeat(6, 1fr);
-    row-gap: 2rem;
-    column-gap: 2rem;
-    margin-top: var(--space-6);
-  }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 1rem)); } /* -50% shifts halfway (the original 6 logos), minus half the gap */
 }
+
+/* Clones are always visible for the infinite marquee effect */
 
 .clientLogoImageWrapper {
   position: relative;

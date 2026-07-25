@@ -576,12 +576,11 @@ export function HomePortfolio() {
         </AnimatePresence>
 
         {/* GRID PROJECTS */}
-        <motion.div layout className={styles.portfolioGrid}>
-          <AnimatePresence>
+        <div className={styles.portfolioGrid}>
+          <AnimatePresence mode="wait">
             {gridItems.map((item) => (
               <motion.div 
                 key={item.id}
-                layout
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
@@ -630,7 +629,7 @@ export function HomePortfolio() {
               </motion.div>
             ))}
           </AnimatePresence>
-        </motion.div>
+        </div>
 
         {activeFilter === "Semua" && (
           <motion.div 
@@ -737,18 +736,26 @@ export function HomeSocialProof() {
         </div>
 
         <div className={styles.clientLogos}>
-          {[
-            { src: "/logo/HUIZEJON.png", alt: "Huize Jon", scale: 2.1 },
-            { src: "/logo/NAJEYAPP.png", alt: "Najey", scale: 1.9 },
-            { src: "/logo/mbakcindy.png", alt: "Mbak Cindy", scale: 1.15 },
-            { src: "/logo/sp.png", alt: "Sekawan Putri", scale: 1.35 },
-            { src: "/logo/sm.png", alt: "Sahabat Motor", scale: 1.35 },
-            { src: "/logo/mbc.png", alt: "MBC", scale: 1.4 }
-          ].map((client, i) => (
-             <motion.div 
-               key={client.alt}
-               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-               className={styles.clientLogoImageWrapper}
+          <div className={styles.clientLogosTrack}>
+            {[
+              { src: "/logo/HUIZEJON.png", alt: "Huize Jon", scale: 2.1 },
+              { src: "/logo/NAJEYAPP.png", alt: "Najey", scale: 1.9 },
+              { src: "/logo/mbakcindy.png", alt: "Mbak Cindy", scale: 1.15 },
+              { src: "/logo/sp.png", alt: "Sekawan Putri", scale: 1.35 },
+              { src: "/logo/sm.png", alt: "Sahabat Motor", scale: 1.35 },
+              { src: "/logo/mbc.png", alt: "MBC", scale: 1.4 },
+              // Duplicate for infinite marquee effect on mobile
+              { src: "/logo/HUIZEJON.png", alt: "Huize Jon 2", scale: 2.1, isClone: true },
+              { src: "/logo/NAJEYAPP.png", alt: "Najey 2", scale: 1.9, isClone: true },
+              { src: "/logo/mbakcindy.png", alt: "Mbak Cindy 2", scale: 1.15, isClone: true },
+              { src: "/logo/sp.png", alt: "Sekawan Putri 2", scale: 1.35, isClone: true },
+              { src: "/logo/sm.png", alt: "Sahabat Motor 2", scale: 1.35, isClone: true },
+              { src: "/logo/mbc.png", alt: "MBC 2", scale: 1.4, isClone: true }
+            ].map((client, i) => (
+               <motion.div 
+                 key={client.alt}
+                 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: (i % 6) * 0.1 }}
+                 className={`${styles.clientLogoImageWrapper} ${client.isClone ? styles.logoClone : ''}`}
                style={{ '--optical-scale': client.scale } as React.CSSProperties}
              >
                <Image 
@@ -760,7 +767,8 @@ export function HomeSocialProof() {
                  style={{ objectFit: 'contain' }}
                />
              </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
 
         <div className={styles.reviewsGrid}>

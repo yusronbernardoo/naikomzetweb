@@ -57,7 +57,7 @@ export function Hero() {
                 Ceritakan Kesusahan Bisnis Anda <ArrowRight size={18} />
               </Button>
             </a>
-            <Link href="#portfolio" scroll={true}>
+            <Link href="/#portfolio" scroll={true}>
               <Button variant="outline" size="lg" style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'var(--color-secondary)' }}>
                 Lihat Contoh Sistem
               </Button>
