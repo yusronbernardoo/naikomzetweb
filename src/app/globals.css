@@ -154,6 +154,15 @@ html { scroll-behavior: smooth; }
   #statistik { order: 10; }
   #tentang { order: 11; }
   #proses-kerja { order: 12; }
+  
+  /* Disable all animations outside Hero on Mobile to prevent JS/GPU overload */
+  .mobile-no-anim section:not(#hero) [style],
+  .mobile-no-anim section:not(#hero) * {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 @media (min-width: 768px) {
