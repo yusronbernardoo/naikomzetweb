@@ -55,7 +55,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Navbar />
-      <main className="mobile-no-anim">
+      <main>
         <section id="hero"><Hero /></section>
         <section id="masalah-bisnis"><HomeProblems /></section>
         <section id="paket"><HomePricing /></section>

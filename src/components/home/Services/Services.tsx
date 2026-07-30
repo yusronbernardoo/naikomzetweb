@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Reveal } from '@/components/ui/Reveal/Reveal';
 import { Globe, Store, Laptop, BarChart, ShoppingBag, ArrowRight, CheckCircle2 } from 'lucide-react';
 import styles from './Services.module.css';
 
@@ -86,7 +87,7 @@ export function Services() {
             const isFeatured = service.featured;
             
             return (
-              <motion.div
+              <Reveal as="div"
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -158,7 +159,7 @@ export function Services() {
                     </>
                   )}
                 </Link>
-              </motion.div>
+              </Reveal>
             );
           })}
         </div>

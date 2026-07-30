@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Reveal } from '@/components/ui/Reveal/Reveal';
 import { 
   ArrowRight, ChevronDown, CheckCircle2, Zap, Search, Shield, 
   Smartphone, HeadphonesIcon, Award, Star, Building2, Check,
@@ -26,25 +27,25 @@ export function HomeProblems() {
     <section className={`${styles.section} ${styles.sectionAlt}`}>
       <div className={`container ${styles.splitLayout}`}>
         <div className={`${styles.splitHeader} ${styles.splitHeaderSticky}`}>
-          <motion.h2 
+          <Reveal as="h2" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className={styles.sectionTitle}
             style={{ textAlign: 'left', maxWidth: '100%', margin: '0 0 var(--space-4) 0' }}
           >
             Biar Anda Gak Pusing Lagi Urusan Operasional
-          </motion.h2>
-          <motion.p 
+          </Reveal>
+          <Reveal as="p" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className={styles.sectionDesc}
             style={{ textAlign: 'left' }}
           >
             Kami bantu merapikan hal-hal yang selama ini sering bikin repot, supaya Anda bisa lebih fokus melayani pembeli dan mengembangkan usaha.
-          </motion.p>
+          </Reveal>
         </div>
 
         <div className={styles.problemsGrid}>
           {problems.map((prob, i) => (
-            <motion.div 
+            <Reveal as="div" 
               key={i}
               initial={{ opacity: 0, y: 20 }} 
               whileInView={{ opacity: 1, y: 0 }} 
@@ -63,7 +64,7 @@ export function HomeProblems() {
                 <span className={styles.problemIconSuccess}>✅</span>
                 <span className={styles.problemTextSuccess}>{prob.auto}</span>
               </div>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -87,7 +88,7 @@ export function HomeStats() {
       <div className="container">
         <div className={styles.statsGrid}>
           {statsData.map((stat, i) => (
-            <motion.div 
+            <Reveal as="div" 
               key={i}
               initial={{ opacity: 0, scale: 0.9 }} 
               whileInView={{ opacity: 1, scale: 1 }} 
@@ -100,7 +101,7 @@ export function HomeStats() {
                 <span className={styles.statBigValue}>{stat.value}</span>
                 <span className={styles.statLabelText}>{stat.label}</span>
               </div>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -125,25 +126,25 @@ export function HomeWhyUs() {
     <section className={`${styles.section} ${styles.sectionAlt}`}>
       <div className="container">
         <div className={styles.sectionHeaderLeft}>
-          <motion.h2 
+          <Reveal as="h2" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className={styles.sectionTitle}
             style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)' }}
           >
             Kenapa Ratusan Pemilik Usaha Percaya NaikOmzet?
-          </motion.h2>
-          <motion.p 
+          </Reveal>
+          <Reveal as="p" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className={styles.sectionDesc}
             style={{ maxWidth: '600px' }}
           >
             Karena kami mengerti, yang Anda butuhkan adalah kemudahan, bukan sistem yang malah bikin tambah repot.
-          </motion.p>
+          </Reveal>
         </div>
 
         <div className={styles.whyUsGrid}>
           {whyUsData.map((item, index) => (
-            <motion.div 
+            <Reveal as="div" 
               key={index}
               initial={{ opacity: 0, y: 20 }} 
               whileInView={{ opacity: 1, y: 0 }} 
@@ -154,7 +155,7 @@ export function HomeWhyUs() {
               <div className={styles.whyUsIcon}>{item.icon}</div>
               <h3 className={styles.whyUsTitle}>{item.title}</h3>
               <p className={styles.whyUsDesc}>{item.desc}</p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -248,29 +249,29 @@ export function HomePricing() {
     <section className={`${styles.section} ${styles.sectionPricing}`}>
       <div className={styles.pricingContainer}>
         <div className={styles.sectionHeader}>
-          <motion.h2 
+          <Reveal as="h2" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className={styles.sectionTitle}
           >
             Pilih Paket Sesuai Kebutuhan Usaha Anda
-          </motion.h2>
-          <motion.p 
+          </Reveal>
+          <Reveal as="p" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className={`${styles.sectionDesc} hideOnMobile`}
           >
             Harga jelas di depan, gak ada biaya tersembunyi yang bikin kaget. Sesuaikan sama ukuran bisnis Anda sekarang.
-          </motion.p>
-          <motion.p 
+          </Reveal>
+          <Reveal as="p" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className={`${styles.sectionDesc} showOnMobile`}
           >
             Harga transparan, sesuaikan dengan ukuran bisnis Anda.
-          </motion.p>
+          </Reveal>
         </div>
 
         <div className={styles.pricingGrid}>
           {pricingData.map((plan, i) => (
-            <motion.div 
+            <Reveal as="div" 
               key={plan.name}
               initial={{ opacity: 0, y: 30 }} 
               whileInView={{ opacity: 1, y: 0 }} 
@@ -335,11 +336,11 @@ export function HomePricing() {
                   </Button>
                 </a>
               </div>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
 
-        <motion.div 
+        <Reveal as="div" 
           initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
           className={styles.pricingSocialProof}
         >
@@ -348,16 +349,16 @@ export function HomePricing() {
           <span><CheckCircle2 size={16} className={styles.checkIcon} /> Tanpa Biaya Tersembunyi</span>
           <span className={styles.spDivider}>•</span>
           <span><HeadphonesIcon size={16} className={styles.checkIcon} /> Pendampingan Pasca-Peluncuran</span>
-        </motion.div>
+        </Reveal>
 
-        <motion.p 
+        <Reveal as="p" 
           initial={{ opacity: 0 }} 
           whileInView={{ opacity: 1 }} 
           viewport={{ once: true }}
           className={styles.pricingDisclaimer}
         >
           Seluruh harga merupakan patokan awal. Biaya akhir akan disesuaikan dengan seberapa banyak fitur yang Anda butuhkan dan seberapa rumit sistemnya setelah kita ngobrol-ngobrol.
-        </motion.p>
+        </Reveal>
       </div>
     </section>
   );
@@ -495,21 +496,21 @@ export function HomePortfolio() {
     <section id="portfolio" className={styles.section}>
       <div className="container">
         <div className={styles.sectionHeader}>
-          <motion.h2 
+          <Reveal as="h2" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className={styles.sectionTitle}
           >
             Contoh Bisnis yang Udah Go Digital
-          </motion.h2>
-          <motion.p 
+          </Reveal>
+          <Reveal as="p" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className={styles.sectionDesc}
           >
             Mulai dari toko grosir sampai penyewaan mobil, ini beberapa contoh sistem yang udah jalan dan ngebantu banget keseharian mereka.
-          </motion.p>
+          </Reveal>
         </div>
 
-        <motion.div 
+        <Reveal as="div" 
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
           className={styles.filterContainer}
         >
@@ -522,12 +523,12 @@ export function HomePortfolio() {
               {cat}
             </button>
           ))}
-        </motion.div>
+        </Reveal>
 
         {/* FEATURED PROJECT */}
         <AnimatePresence mode="wait">
           {featuredItem && (
-            <motion.div 
+            <Reveal as="div" 
               key="featured"
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, height: 0 }}
               className={`${styles.portfolioCard} ${styles.portfolioFeatured}`}
@@ -571,7 +572,7 @@ export function HomePortfolio() {
                   )}
                 </div>
               </div>
-            </motion.div>
+            </Reveal>
           )}
         </AnimatePresence>
 
@@ -579,7 +580,7 @@ export function HomePortfolio() {
         <div className={styles.portfolioGrid}>
           <AnimatePresence mode="wait">
             {gridItems.map((item) => (
-              <motion.div 
+              <Reveal as="div" 
                 key={item.id}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -626,7 +627,7 @@ export function HomePortfolio() {
                     </div>
                   )}
                 </div>
-              </motion.div>
+              </Reveal>
             ))}
           </AnimatePresence>
         </div>
@@ -654,24 +655,24 @@ export function HomeProcess() {
     <section className={styles.section}>
       <div className={`container ${styles.splitLayout}`}>
         <div className={styles.splitHeaderSticky}>
-          <motion.h2 
+          <Reveal as="h2" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className={styles.sectionTitle}
           >
             Gimana Cara <br/><span className="text-gold">Mulainya?</span>
-          </motion.h2>
-          <motion.p 
+          </Reveal>
+          <Reveal as="p" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className={styles.sectionDesc}
             style={{ maxWidth: '400px' }}
           >
             Gak usah pusing mikirin teknisnya. Urutan kerjanya jelas, simpel, dan kami yang akan bantu nuntun dari awal sampai sistemnya nyala.
-          </motion.p>
+          </Reveal>
         </div>
 
         <div className={styles.timelineList}>
           {processData.map((step, index) => (
-            <motion.div 
+            <Reveal as="div" 
               key={index}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -687,7 +688,7 @@ export function HomeProcess() {
                 <h3 className={styles.timelineHeading}>{step.title}</h3>
                 <p className={styles.timelineText}>{step.desc}</p>
               </div>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -709,19 +710,19 @@ export function HomeSocialProof() {
     <section className={`${styles.section} ${styles.sectionAlt}`}>
       <div className="container">
         <div className={styles.sectionHeader}>
-          <motion.h2 
+          <Reveal as="h2" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className={styles.sectionTitle}
           >
             Sudah Dipercaya Berbagai Bisnis di Indonesia
-          </motion.h2>
-          <motion.p
+          </Reveal>
+          <Reveal as="p"
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
             className={styles.sectionSubtitle}
             style={{ maxWidth: '800px', margin: '0 auto', fontSize: '1.125rem', color: 'var(--text-secondary)' }}
           >
             Kami membantu berbagai jenis bisnis merapikan operasional, menghemat waktu, dan meningkatkan produktivitas.
-          </motion.p>
+          </Reveal>
         </div>
 
         <div className={styles.clientLogos}>
@@ -741,7 +742,7 @@ export function HomeSocialProof() {
               { src: "/logo/sm.png", alt: "Sahabat Motor 2", scale: 1.35, isClone: true },
               { src: "/logo/mbc.png", alt: "MBC 2", scale: 1.4, isClone: true }
             ].map((client, i) => (
-               <motion.div 
+               <Reveal as="div" 
                  key={client.alt}
                  initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: (i % 6) * 0.1 }}
                  className={`${styles.clientLogoImageWrapper} ${client.isClone ? styles.logoClone : ''}`}
@@ -755,14 +756,14 @@ export function HomeSocialProof() {
                  sizes="(max-width: 768px) 150px, 200px"
                  style={{ objectFit: 'contain' }}
                />
-             </motion.div>
+             </Reveal>
             ))}
           </div>
         </div>
 
         <div className={styles.reviewsGrid}>
           {reviews.map((rev, i) => (
-            <motion.div 
+            <Reveal as="div" 
               key={i}
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.2 }}
               className={styles.reviewCard}
@@ -778,7 +779,7 @@ export function HomeSocialProof() {
                 </div>
               </div>
               <p className={styles.reviewText}>"{rev.text}"</p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>
@@ -796,7 +797,7 @@ export function HomeAbout() {
     <section className={styles.section}>
       <div className="container">
         <div className={styles.aboutGrid}>
-          <motion.div 
+          <Reveal as="div" 
             initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             className={styles.aboutImageWrapper}
           >
@@ -808,9 +809,9 @@ export function HomeAbout() {
                   <p>Digital Agency Premium Indonesia</p>
                 </div>
              </div>
-          </motion.div>
+          </Reveal>
 
-          <motion.div 
+          <Reveal as="div" 
             initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
             className={styles.aboutContent}
           >
@@ -835,7 +836,7 @@ export function HomeAbout() {
                 </Button>
               </a>
             </div>
-          </motion.div>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -866,13 +867,13 @@ export function HomeFaq() {
     <section className={`${styles.section} ${styles.sectionAlt}`}>
       <div className={`container ${styles.splitLayout}`}>
         <div className={`${styles.splitHeader} ${styles.splitHeaderSticky}`}>
-          <motion.h2 
+          <Reveal as="h2" 
             initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
             className={styles.sectionTitle}
             style={{ textAlign: 'left', maxWidth: '100%', margin: '0 0 var(--space-4) 0' }}
           >
             Pertanyaan yang Sering Diajukan
-          </motion.h2>
+          </Reveal>
           
           <div className={styles.searchContainer} style={{ margin: '0' }}>
             <Search className={styles.searchIcon} size={20} />
@@ -886,7 +887,7 @@ export function HomeFaq() {
           </div>
         </div>
 
-        <motion.div 
+        <Reveal as="div" 
           initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
           className={styles.faqWrapper}
         >
@@ -906,7 +907,7 @@ export function HomeFaq() {
                 </div>
                 <AnimatePresence initial={false}>
                   {isActive && (
-                    <motion.div
+                    <Reveal as="div"
                       initial={{ height: 0, opacity: 0 }} 
                       animate={{ height: 'auto', opacity: 1 }} 
                       exit={{ height: 0, opacity: 0 }} 
@@ -914,7 +915,7 @@ export function HomeFaq() {
                       className={styles.faqAnswer}
                     >
                       <div className={styles.faqAnswerInner}>{faq.a}</div>
-                    </motion.div>
+                    </Reveal>
                   )}
                 </AnimatePresence>
               </div>
@@ -922,7 +923,7 @@ export function HomeFaq() {
           }) : (
             <p style={{ textAlign: 'center', color: 'var(--text-tertiary)' }}>Tidak ada pertanyaan yang cocok dengan pencarian Anda.</p>
           )}
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );
@@ -935,7 +936,7 @@ export function HomeBottomCTA() {
   return (
     <section className={styles.bottomCtaSection}>
       <div className="container">
-        <motion.div 
+        <Reveal as="div" 
           initial={{ opacity: 0, y: 40 }} 
           whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: true }} 
@@ -972,7 +973,7 @@ export function HomeBottomCTA() {
                <div className={styles.ctaDashCard} />
             </div>
           </div>
-        </motion.div>
+        </Reveal>
       </div>
     </section>
   );
