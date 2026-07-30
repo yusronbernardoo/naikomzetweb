@@ -32,17 +32,20 @@
   height: 50vw;
   background: radial-gradient(circle, rgba(212,175,55,0.15) 0%, rgba(0,0,0,0) 70%);
   border-radius: 50%;
+  transform: translateZ(0);
+  pointer-events: none;
 }
 
 .glow2 {
   position: absolute;
   bottom: 0%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateZ(0);
   width: 70vw;
   height: 50vw;
   background: radial-gradient(circle, rgba(212,175,55,0.2) 0%, rgba(0,0,0,0) 65%); /* Stronger, wider glow */
   border-radius: 50%;
+  pointer-events: none;
 }
 
 .content {
@@ -76,7 +79,13 @@
   font-size: 0.875rem;
   color: var(--color-accent);
   font-weight: 500;
-  backdrop-filter: blur(4px);
+  transform: translateZ(0);
+}
+
+@media (min-width: 768px) {
+  .badge {
+    backdrop-filter: blur(4px);
+  }
 }
 
 .title {
@@ -138,19 +147,26 @@
 }
 
 .dashboardMockup {
-  background: rgba(17, 17, 17, 0.7);
+  background: rgba(17, 17, 17, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.1); /* Brighter border */
   border-radius: var(--radius-xl) var(--radius-xl) 0 0; /* Flat bottom */
-  backdrop-filter: blur(32px); /* Smoother glass */
-  -webkit-backdrop-filter: blur(32px);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 -20px 60px -20px rgba(212, 175, 55, 0.15); /* Premium inner glow */
   overflow: hidden;
-  transform: rotateX(5deg) translateY(20px);
+  transform: rotateX(5deg) translateY(20px) translateZ(0); /* translateZ(0) forces GPU composition */
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .dashboardMockup {
+    background: rgba(17, 17, 17, 0.7);
+    backdrop-filter: blur(32px); /* Smoother glass only on desktop */
+    -webkit-backdrop-filter: blur(32px);
+  }
 }
 
 .dashboardMockup:hover {
-  transform: rotateX(0deg) translateY(0);
+  transform: rotateX(0deg) translateY(0) translateZ(0);
 }
 
 .mockupHeader {
