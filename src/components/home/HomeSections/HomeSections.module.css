@@ -990,11 +990,13 @@
   /* 60fps smooth animation */
   animation: marquee 15s linear infinite;
   will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(calc(-50% - 1rem)); } /* -50% shifts halfway (the original 6 logos), minus half the gap */
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(calc(-50% - 1rem), 0, 0); } /* -50% shifts halfway (the original 6 logos), minus half the gap */
 }
 
 /* Clones are always visible for the infinite marquee effect */
@@ -1008,6 +1010,9 @@
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .clientLogoImage {
