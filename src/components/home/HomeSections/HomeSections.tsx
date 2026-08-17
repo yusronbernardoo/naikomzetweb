@@ -430,6 +430,22 @@ const portfolioData = [
     imageUrl: "/portfolio/mbakcindy.png",
     liveUrl: "https://dulcet-strudel-4e6ab7.netlify.app/",
     buttonText: "Coba Sistem"
+  },
+  {
+    id: 5,
+    title: "Huize Jon Coffee",
+    client: "Huize Jon",
+    category: "Sistem Kasir & Pesanan Dapur",
+    desc: "Masalah: Pencatatan pesanan kedai kopi sering salah dan antrean menjadi panjang.\nSolusi: Sistem Point of Sales (Kasir) khusus untuk memproses pesanan dengan cepat dan akurat.\nManfaat: Transaksi pelanggan dalam hitungan detik, dan rekap jualan harian langsung jadi otomatis.",
+    shortDesc: "Sistem kasir super cepat khusus kedai kopi.",
+    tech: ["Kasir Kedai Kopi", "Rekap Harian", "Menu Custom"],
+    role: "Digital Partner",
+    year: "2026",
+    color: "#a855f7",
+    featured: false,
+    imageUrl: "/logo/HUIZEJON.png",
+    liveUrl: "https://huizejoncoffee.netlify.app/",
+    buttonText: "Coba Sistem"
   }
 ];
 
@@ -445,7 +461,7 @@ export function HomePortfolio() {
   // Separate featured and regular for the 1 + 5 layout
   // If a category is selected, just show them as regular grid for simplicity
   const featuredItem = activeFilter === "Semua" ? filteredData.find(i => i.featured) : null;
-  const gridItems = activeFilter === "Semua" ? filteredData.filter(i => !i.featured).slice(0, 3) : filteredData;
+  const gridItems = activeFilter === "Semua" ? filteredData.filter(i => !i.featured).slice(0, 5) : filteredData;
 
   // Reusable Mockup Component
   const PortfolioMockup = ({ item, isLarge = false }: { item: any, isLarge?: boolean }) => {
