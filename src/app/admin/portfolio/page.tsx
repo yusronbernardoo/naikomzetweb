@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { getPortfolios } from '@/lib/actions/portfolio';
 import DeleteButton from './DeleteButton';
 
+export const dynamic = 'force-dynamic';
+
 export default async function PortfolioAdmin() {
   const portfolios = await getPortfolios();
 

@@ -2,6 +2,8 @@ import { getCategories, getPortfolioById } from '@/lib/actions/portfolio';
 import PortfolioForm from '../../PortfolioForm';
 import { notFound } from 'next/navigation';
 
+export const dynamic = 'force-dynamic';
+
 export default async function EditPortfolioPage({ params }: { params: { id: string } }) {
   const categories = await getCategories();
   const portfolio = await getPortfolioById(params.id);

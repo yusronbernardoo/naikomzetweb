@@ -1,6 +1,8 @@
 import { getCategories } from '@/lib/actions/portfolio';
 import PortfolioForm from '../PortfolioForm';
 
+export const dynamic = 'force-dynamic';
+
 export default async function CreatePortfolioPage() {
   const categories = await getCategories();
 

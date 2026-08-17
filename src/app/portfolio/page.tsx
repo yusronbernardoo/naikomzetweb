@@ -12,6 +12,8 @@ export const metadata = {
   description: "Lihat hasil karya premium kami yang telah membantu ratusan UMKM meningkatkan omzetnya.",
 };
 
+export const dynamic = 'force-dynamic';
+
 export default async function PortfolioPage() {
   const portfolios = await prisma.portfolio.findMany({
     include: { category: true },
