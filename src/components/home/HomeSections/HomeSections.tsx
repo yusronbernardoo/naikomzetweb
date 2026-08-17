@@ -436,7 +436,7 @@ const portfolioData = [
     title: "Huize Jon Coffee",
     client: "Huize Jon",
     category: "Sistem Kasir & Pesanan Dapur",
-    desc: "Masalah: Pencatatan pesanan kedai kopi sering salah dan antrean menjadi panjang.\nSolusi: Sistem Point of Sales (Kasir) khusus untuk memproses pesanan dengan cepat dan akurat.\nManfaat: Transaksi pelanggan dalam hitungan detik, dan rekap jualan harian langsung jadi otomatis.",
+    desc: "Masalah: Pencatatan pesanan kedai kopi sering salah dan antrean menjadi panjang.\nSolusi: Sistem Point of Sales (Kasir) khusus untuk memproses pesanan dengan cepat dan akurat.\nManfaat: Transaksi pelanggan dalam hitungan detik, dan rekap jualan harian langsung jadi otomatis.\n\nDemo Account:\nRole: Owner | Password: 1234",
     shortDesc: "Sistem kasir super cepat khusus kedai kopi.",
     tech: ["Kasir Kedai Kopi", "Rekap Harian", "Menu Custom"],
     role: "Digital Partner",
