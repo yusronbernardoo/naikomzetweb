@@ -443,7 +443,7 @@ const portfolioData = [
     year: "2026",
     color: "#a855f7",
     featured: false,
-    imageUrl: "/logo/HUIZEJON.png",
+    imageUrl: "/portfolio/huizejon.png",
     liveUrl: "https://huizejoncoffee.netlify.app/",
     buttonText: "Coba Sistem"
   }
