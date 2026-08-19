@@ -2,10 +2,11 @@
   position: relative;
   background-color: var(--bg-dark);
   color: var(--text-light);
-  padding: clamp(6rem, 10vw, 8rem) 0 0; /* Removed bottom padding so mockup touches the bottom edge */
+  padding: clamp(4rem, 6vw, 6rem) 0; /* Add bottom padding back so it doesn't touch bottom */
   display: flex;
   align-items: center;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 .bgElements {
@@ -55,8 +56,17 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: clamp(1.5rem, 4vw, 2.5rem); /* Tighter gap */
+  gap: clamp(1.5rem, 4vw, 2.5rem);
   align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    align-items: center;
+    gap: 3rem;
+  }
 }
 
 .textContent {
@@ -66,6 +76,19 @@
   flex-direction: column;
   gap: var(--space-4);
   align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .textContent {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    z-index: 10;
+    text-align: left;
+    align-items: flex-start;
+    max-width: 100%;
+    padding-top: 2rem;
+    padding-right: 2rem;
+  }
 }
 
 .badge {
@@ -89,15 +112,16 @@
 }
 
 .title {
-  font-size: 3.5rem;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  font-weight: 800;
   line-height: 1.1;
   color: var(--color-secondary);
-  letter-spacing: -0.03em; /* Tighter tracking for premium feel */
+  letter-spacing: -0.03em;
 }
 
 @media (min-width: 768px) {
   .title {
-    font-size: 4.5rem;
+    font-size: 3.5rem;
   }
 }
 
@@ -109,9 +133,10 @@
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: clamp(0.875rem, 4vw, 0.95rem);
   color: var(--text-tertiary);
-  max-width: 600px;
+  margin-bottom: var(--space-6);
+  max-width: 90%;
   line-height: 1.6;
 }
 
@@ -126,7 +151,7 @@
   flex-direction: column;
   gap: var(--space-4);
   width: 100%;
-  margin-top: var(--space-4);
+  max-width: 400px;
 }
 
 @media (min-width: 640px) {
@@ -137,36 +162,59 @@
   }
 }
 
+@media (min-width: 1024px) {
+  .actions {
+    justify-content: flex-start;
+  }
+}
+
 .mockupContainer {
   position: relative;
   width: 100%;
-  max-width: 1100px; /* Dominates the screen */
+  max-width: 1100px;
   perspective: 1000px;
-  margin-top: -1rem; /* Pull up closer to text */
-  margin-bottom: -4rem; /* Extend beyond section bounds slightly */
+  margin-top: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .mockupContainer {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    justify-self: end;
+    width: 105%;
+    margin-top: 0;
+    margin-bottom: 0;
+    transform: translateX(0%) rotateY(-15deg) rotateX(10deg);
+    z-index: 5;
+    transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  
+  .mockupContainer:hover {
+    transform: translateX(-2%) rotateY(-5deg) rotateX(5deg);
+  }
 }
 
 .dashboardMockup {
   background: rgba(17, 17, 17, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.1); /* Brighter border */
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0; /* Flat bottom */
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 -20px 60px -20px rgba(212, 175, 55, 0.15); /* Premium inner glow */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl); /* Rounded on all sides! */
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 20px 40px rgba(0, 0, 0, 0.4); /* Normal shadow instead of bottom highlight */
   overflow: hidden;
-  transform: rotateX(5deg) translateY(20px) translateZ(0); /* translateZ(0) forces GPU composition */
+  transform: rotateX(5deg) translateZ(0);
   transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   will-change: transform;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .dashboardMockup {
     background: rgba(17, 17, 17, 0.7);
-    backdrop-filter: blur(32px); /* Smoother glass only on desktop */
+    backdrop-filter: blur(32px);
     -webkit-backdrop-filter: blur(32px);
+    transform: none; /* Let parent handle 3D */
   }
-}
-
-.dashboardMockup:hover {
-  transform: rotateX(0deg) translateY(0) translateZ(0);
+  .dashboardMockup:hover {
+    transform: none;
+  }
 }
 
 .mockupHeader {
@@ -258,19 +306,50 @@
 
 .floatingCard1 {
   top: 15%;
-  right: -8%;
+  right: -1rem; /* Reduced from -8% to avoid viewport clipping on iPad */
   animation: float 7s ease-in-out infinite;
 }
 
 .floatingCard2 {
   bottom: 15%;
-  left: -8%;
+  left: -1rem; /* Reduced from 2% to keep it balanced */
   animation: float 9s ease-in-out infinite reverse;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 767px) {
   .floatingCard {
-    display: none;
+    /* Instead of display: none, we shrink it for mobile */
+    padding: var(--space-2) var(--space-3);
+    gap: var(--space-2);
+    border-radius: var(--radius-lg);
+  }
+  
+  .floatingCard1 {
+    top: -15px;
+    right: -10px;
+  }
+
+  .floatingCard2 {
+    bottom: -15px;
+    left: -10px;
+  }
+  
+  .iconCircle {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  
+  .iconCircle svg {
+    width: 14px !important;
+    height: 14px !important;
+  }
+  
+  .floatText h4 {
+    font-size: 0.75rem !important;
+  }
+  
+  .floatText p {
+    font-size: 0.65rem !important;
   }
 }
 
@@ -343,10 +422,8 @@
 @media (max-width: 767px) {
   .hero {
     /* Navbar is 5rem + 12px = 92px. Use safe-area for notch protection */
-    padding: calc(5rem + 12px + env(safe-area-inset-top, 0px)) 0 0; 
-    height: auto;
-    min-height: 0;
-    align-items: flex-start;
+    padding: calc(5rem + 12px + env(safe-area-inset-top, 0px)) 0 clamp(2rem, 4vw, 4rem); 
+    align-items: center;
   }
   .content {
     padding-top: 0;
@@ -379,17 +456,24 @@
   }
   .actions {
     margin-top: 0;
-    gap: 16px;
     width: 100%;
+  }
+  .actions > * {
+    width: 100%;
+    display: flex;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+  .actions > *:last-child {
+    margin-bottom: 0;
   }
   .actions button {
     width: 100%;
   }
   .mockupContainer {
-    margin-top: 0;
-    margin-bottom: -15%;
+    margin-top: 1rem;
     transform: scale(0.9); /* Scale down to prevent overflow on very narrow phones */
-    transform-origin: top center;
+    transform-origin: center center;
     width: 100%;
   }
 }

@@ -35,10 +35,6 @@ export function Hero() {
           animate="visible"
           className={styles.textContent}
         >
-          <motion.div variants={itemVariants} className={styles.badge}>
-            <Sparkles size={16} />
-            Bikin Bisnis Anda Jauh Lebih Rapi
-          </motion.div>
 
           <motion.h1 variants={itemVariants} className={styles.title}>
             Bisnis Makin Ramai, Tapi Operasional Malah <span className={styles.highlight}>Makin Berantakan?</span>

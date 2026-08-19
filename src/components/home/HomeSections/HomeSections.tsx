@@ -7,65 +7,142 @@ import { Reveal } from '@/components/ui/Reveal/Reveal';
 import { 
   ArrowRight, ChevronDown, CheckCircle2, Zap, Search, Shield, 
   Smartphone, HeadphonesIcon, Award, Star, Building2, Check,
-  LineChart, Users, TrendingUp, BarChart, CircleDot, Quote
+  LineChart, Users, TrendingUp, BarChart, CircleDot, Quote, XCircle
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button/Button';
 import styles from './HomeSections.module.css';
 
-// ----------------------------------------------------------------------
-// BUSINESS PROBLEMS SECTION (New)
+// -// ----------------------------------------------------------------------
+// NARRATIVE SCROLL (Masalah & Solusi/Why Us)
 // ----------------------------------------------------------------------
 const problems = [
-  { manual: "Order masih dicatat manual", auto: "Pesanan langsung tercatat sehingga tidak perlu menulis ulang." },
-  { manual: "Chat pelanggan berantakan", auto: "Semua riwayat pelanggan tersimpan lebih rapi." },
-  { manual: "Sulit mengecek sisa stok", auto: "Stok selalu terlihat sehingga tidak lagi bingung saat melayani pelanggan." },
-  { manual: "Laporan lama dibuat", auto: "Laporan harian siap kapan saja tanpa menghitung satu per satu." }
+  { 
+    title: "Administrasi Pembukuan", 
+    manual: "3+ jam hilang tiap malam cuma buat ngitung ulang tumpukan nota.", 
+    auto: "Rekap penjualan & untung-rugi otomatis selesai dalam 1 detik. Tinggal pantau dari HP." 
+  },
+  { 
+    title: "Manajemen Order", 
+    manual: "Sering telat balas chat WA, pembeli keburu kabur ke toko sebelah.", 
+    auto: "100 chat pesanan masuk berbarengan pun, semua terlayani detik itu juga." 
+  },
+  { 
+    title: "Kontrol Stok Gudang", 
+    manual: "Di buku stok masih ada, pas dicek di gudang ternyata ludes. Ujung-ujungnya nombok selisih.", 
+    auto: "Tiap pesanan masuk, stok otomatis kepotong. Data dan fisik akurat 100%, bye-bye nombok." 
+  },
 ];
 
-export function HomeProblems() {
+const whyUsData = [
+  { icon: <Zap size={32} />, title: "Dibuat Pas Sama Kebiasaan Anda", desc: "Kami yang menyesuaikan dengan cara Anda kerja, bukan sebaliknya. Gak perlu bingung belajar aplikasi baru yang ribet." },
+  { icon: <Search size={32} />, title: "Gak Gampang Error Saat Ramai", desc: "Sistem tetap lancar biarpun pesanan lagi banyak-banyaknya, jadi pelanggan gak perlu nunggu lama." },
+  { icon: <Smartphone size={32} />, title: "Pantau Toko Lewat HP", desc: "Lagi di luar kota? Anda tetap bisa cek penjualan dan ketersediaan barang hari ini langsung dari layar HP." },
+  { icon: <HeadphonesIcon size={32} />, title: "Dibantu Terus Sampai Bisa", desc: "Gak perlu takut gaptek. Kami ajarin sampai lancar, dan kalau ada kendala tinggal WA kami aja." },
+  { icon: <Shield size={32} />, title: "Gak Repot Ngetik Ulang", desc: "Hemat waktu dan tenaga admin Anda. Gak perlu lagi mindahin data dari nota ke buku laporan satu per satu." },
+  { icon: <Award size={32} />, title: "Data Aman, Gak Bakal Ilang", desc: "Buku bisa basah atau hilang, tapi kalau pakai sistem, data penjualan Anda tersimpan aman dan rapi." }
+];
+
+export function HomeNarrative() {
   return (
     <section className={`${styles.section} ${styles.sectionAlt}`}>
-      <div className={`container ${styles.splitLayout}`}>
-        <div className={`${styles.splitHeader} ${styles.splitHeaderSticky}`}>
-          <Reveal as="h2" 
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className={styles.sectionTitle}
-            style={{ textAlign: 'left', maxWidth: '100%', margin: '0 0 var(--space-4) 0' }}
-          >
-            Biar Anda Gak Pusing Lagi Urusan Operasional
-          </Reveal>
-          <Reveal as="p" 
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-            className={styles.sectionDesc}
-            style={{ textAlign: 'left' }}
-          >
-            Kami bantu merapikan hal-hal yang selama ini sering bikin repot, supaya Anda bisa lebih fokus melayani pembeli dan mengembangkan usaha.
-          </Reveal>
-        </div>
-
-        <div className={styles.problemsGrid}>
-          {problems.map((prob, i) => (
-            <Reveal as="div" 
-              key={i}
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={styles.problemCard}
+      <div className={`container ${styles.splitLayout}`} style={{ marginBottom: 'clamp(4rem, 8vw, 8rem)' }}>
+        <div className={styles.splitHeader}>
+          <div className={styles.splitHeaderSticky}>
+            <Reveal as="h2" 
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className={styles.sectionTitle}
+              style={{ textAlign: 'left', maxWidth: '100%', margin: '0 0 var(--space-4) 0' }}
             >
-              <div className={styles.problemManual}>
-                <span className={styles.problemIconFail}>❌</span>
-                <span className={styles.problemTextFail}>{prob.manual}</span>
-              </div>
-              <div className={styles.problemDivider}>
-                <ArrowRight size={18} className={styles.problemArrow} />
-              </div>
-              <div className={styles.problemAuto}>
-                <span className={styles.problemIconSuccess}>✅</span>
-                <span className={styles.problemTextSuccess}>{prob.auto}</span>
+              Biar Anda Gak Pusing Lagi Urusan Operasional
+            </Reveal>
+            <Reveal as="p" 
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              className={styles.sectionDesc}
+              style={{ textAlign: 'left', marginBottom: 'var(--space-4)' }}
+            >
+              Kami bantu merapikan hal-hal yang selama ini sering bikin repot, supaya Anda bisa lebih fokus melayani pembeli dan mengembangkan usaha.
+            </Reveal>
+            <Reveal as="div"
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
+              className="hideOnMobile"
+            >
+              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', color: 'var(--text-tertiary)', fontSize: '0.875rem' }}>
+                <span className={styles.pulseDot} style={{ width: '8px', height: '8px', background: 'var(--color-accent)', borderRadius: '50%' }}></span>
+                Scroll untuk melihat solusi kami
               </div>
             </Reveal>
-          ))}
+          </div>
+        </div>
+
+        <div className={styles.narrativeScrollArea} style={{ display: 'flex', flexDirection: 'column' }}>
+          {/* Bagian Masalah -> Solusi */}
+          <div className={styles.problemsGrid}>
+            {problems.map((prob, i) => (
+              <Reveal as="div" 
+                key={i}
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ delay: i * 0.1 }}
+                className={styles.problemCard}
+              >
+                <div className={styles.problemManual}>
+                  <span className={styles.problemLabel}>Cara Lama</span>
+                  <span className={styles.problemTextFail}>{prob.manual}</span>
+                </div>
+                <div className={styles.problemDivider}>
+                  {/* Arrow removed per user request */}
+                </div>
+                <div className={styles.problemAuto}>
+                  <span className={styles.problemLabelAccent}>Naik Omzet</span>
+                  <span className={styles.problemTextSuccess}>{prob.auto}</span>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className={`container ${styles.splitLayout}`}>
+        <div className={styles.splitHeader}>
+          <div className={styles.splitHeaderSticky}>
+            <Reveal as="h2"
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              className={styles.sectionTitle}
+              style={{ textAlign: 'left', maxWidth: '100%', margin: '0 0 var(--space-4) 0' }}
+            >
+              Kenapa Ratusan Pemilik Usaha Percaya NaikOmzet?
+            </Reveal>
+            <Reveal as="p" 
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
+              className={styles.sectionDesc}
+              style={{ textAlign: 'left', marginBottom: 'var(--space-4)' }}
+            >
+              Sistem yang kami buat dirancang khusus untuk memahami kebutuhan bisnis Anda di lapangan.
+            </Reveal>
+          </div>
+        </div>
+
+        <div className={styles.narrativeScrollArea}>
+          {/* Bagian Kenapa Kami */}
+          <div className={`${styles.whyUsGrid} ${styles.narrativeWhyUsGrid}`}>
+            {whyUsData.map((item, index) => (
+              <Reveal as="div" 
+                key={index}
+                initial={{ opacity: 0, y: 20 }} 
+                whileInView={{ opacity: 1, y: 0 }} 
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1 }}
+                className={`${styles.whyUsCard} ${styles.narrativeWhyUsCard}`}
+              >
+                <div className={styles.whyUsIcon}>{item.icon}</div>
+                <div>
+                  <h4 className={styles.whyUsTitle}>{item.title}</h4>
+                  <p className={styles.whyUsDesc}>{item.desc}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -77,10 +154,10 @@ export function HomeProblems() {
 // ----------------------------------------------------------------------
 export function HomeStats() {
   const statsData = [
-    { value: "500+", label: "Pemilik Usaha Terbantu", icon: <Users size={32} /> },
-    { value: "98%", label: "Merasa Kerja Lebih Gampang", icon: <TrendingUp size={32} /> },
-    { value: "24/7", label: "Siap Bantu Kalau Ada Masalah", icon: <Star size={32} /> },
-    { value: "5x", label: "Lebih Cepat Dibanding Manual", icon: <BarChart size={32} /> }
+            { value: "37+", label: "Klien & Bisnis Terbantu", icon: <Users size={32} /> },
+    { value: "98%", label: "Tingkat Kepuasan Klien", icon: <TrendingUp size={32} /> },
+    { value: "24/7", label: "Dukungan Tim Support", icon: <Star size={32} /> },
+    { value: "5x", label: "Lebih Cepat Dari Manual", icon: <BarChart size={32} /> }
   ];
 
   return (
@@ -109,137 +186,80 @@ export function HomeStats() {
   );
 }
 
-// ----------------------------------------------------------------------
-// WHY CHOOSE US
-// ----------------------------------------------------------------------
-const whyUsData = [
-  { icon: <Zap size={32} />, title: "Dibuat Pas Sama Kebiasaan Anda", desc: "Kami yang menyesuaikan dengan cara Anda kerja, bukan sebaliknya. Gak perlu bingung belajar aplikasi baru yang ribet." },
-  { icon: <Search size={32} />, title: "Gak Gampang Error Saat Ramai", desc: "Sistem tetap lancar biarpun pesanan lagi banyak-banyaknya, jadi pelanggan gak perlu nunggu lama." },
-  { icon: <Smartphone size={32} />, title: "Pantau Toko Lewat HP", desc: "Lagi di luar kota? Anda tetap bisa cek penjualan dan ketersediaan barang hari ini langsung dari layar HP." },
-  { icon: <HeadphonesIcon size={32} />, title: "Dibantu Terus Sampai Bisa", desc: "Gak perlu takut gaptek. Kami ajarin sampai lancar, dan kalau ada kendala tinggal WA kami aja." },
-  { icon: <Shield size={32} />, title: "Gak Repot Ngetik Ulang", desc: "Hemat waktu dan tenaga admin Anda. Gak perlu lagi mindahin data dari nota ke buku laporan satu per satu." },
-  { icon: <Award size={32} />, title: "Data Aman, Gak Bakal Ilang", desc: "Buku bisa basah atau hilang, tapi kalau pakai sistem, data penjualan Anda tersimpan aman dan rapi." }
-];
-
-export function HomeWhyUs() {
-  return (
-    <section className={`${styles.section} ${styles.sectionAlt}`}>
-      <div className="container">
-        <div className={styles.sectionHeaderLeft}>
-          <Reveal as="h2" 
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className={styles.sectionTitle}
-            style={{ fontSize: 'clamp(3rem, 5vw, 4.5rem)' }}
-          >
-            Kenapa Ratusan Pemilik Usaha Percaya NaikOmzet?
-          </Reveal>
-          <Reveal as="p" 
-            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
-            className={styles.sectionDesc}
-            style={{ maxWidth: '600px' }}
-          >
-            Karena kami mengerti, yang Anda butuhkan adalah kemudahan, bukan sistem yang malah bikin tambah repot.
-          </Reveal>
-        </div>
-
-        <div className={styles.whyUsGrid}>
-          {whyUsData.map((item, index) => (
-            <Reveal as="div" 
-              key={index}
-              initial={{ opacity: 0, y: 20 }} 
-              whileInView={{ opacity: 1, y: 0 }} 
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={styles.whyUsCard}
-            >
-              <div className={styles.whyUsIcon}>{item.icon}</div>
-              <h3 className={styles.whyUsTitle}>{item.title}</h3>
-              <p className={styles.whyUsDesc}>{item.desc}</p>
-            </Reveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 // ----------------------------------------------------------------------
 // PRICING SECTION
 // ----------------------------------------------------------------------
 const pricingData = [
-  {
-    name: "Launch",
+          {
+    name: "Web Profil Bisnis",
     prefix: "Mulai Dari",
-    originalPrice: "999.000",
-    price: "699.000",
-    desc: "Pas buat Anda yang baru mau merapikan tampilan usaha di internet biar pelanggan lebih percaya.",
+    originalPrice: "1.199.000",
+    price: "799.000",
+    desc: "Target: Usaha yang belum ada di Google dan butuh wajah profesional agar lebih dipercaya pelanggan.",
     shortDesc: "Tampil profesional di internet agar pelanggan percaya.",
     popular: false,
     cta: "Pilih Paket Ini",
     features: [
-      "Profil Usaha Lengkap (5 Halaman)",
-      "Bagus Dibuka di HP & Laptop",
-      "Tombol Langsung Chat WA",
-      "Gampang Dicari di Google Maps",
-      "Sudah Termasuk Domain & Aman",
-      "Gratis 2x Revisi Tampilan"
+      "1-2 Halaman Profil Usaha",
+      "Setup Google Maps (Biar gampang dicari)",
+      "Desain Responsif (Bagus di HP & Laptop)",
+      "Tombol Link Chat ke WhatsApp",
+      "Sudah Termasuk Domain & Keamanan"
     ]
   },
-  {
-    name: "Starter",
+    {
+    name: "Katalog Digital",
     prefix: "Mulai Dari",
-    originalPrice: "1.799.000",
-    price: "1.299.000",
-    desc: "Pas buat bisnis yang mulai ramai dan butuh sistem awal untuk terima pesanan online dengan rapi.",
-    shortDesc: "Siap terima pesanan online dengan rapi.",
-    popular: true,
+    originalPrice: "3.500.000",
+    price: "1.999.000",
+    desc: "Target: Bisnis yang punya banyak produk tapi capek rekap orderan dan balas chat nanya harga manual.",
+    shortDesc: "Katalog online untuk mempermudah pesanan.",
+    popular: false,
     cta: "Tanya Dulu Boleh",
     features: [
-      "Semua fitur di paket Launch",
-      "Desain Spesifik Buat Bisnis Anda",
-      "Bisa Tampil Katalog & Testimoni",
-      "Mudah Masuk Halaman 1 Google",
-      "Dibantu Setup Profil Bisnis Google",
-      "Diajarin Cara Pakainya Sampai Bisa",
-      "Gratis 5x Revisi Tampilan"
+      "Sistem Katalog Digital Lengkap",
+      "Website Profil 5 Halaman (SEO Friendly)",
+      "Tampilan Simpel & Siap Pakai",
+      "Formulir Order (Pembeli Tinggal Isi)",
+      "Pesanan Direkap Otomatis ke WhatsApp"
     ]
   },
-  {
-    name: "Business",
+      {
+    name: "Sistem Otomatis",
     prefix: "Mulai Dari",
-    originalPrice: "2.699.000",
-    price: "1.999.000",
-    desc: "Pilihan tepat kalau usaha sudah jalan kencang dan butuh fitur kasir, absen, dan laporan otomatis.",
-    shortDesc: "Otomatisasi laporan, kasir, & admin bisnis Anda.",
-    popular: false,
-    cta: "Lihat Detailnya",
+    originalPrice: "4.500.000",
+    price: "2.999.000",
+    desc: "Target: Usaha fisik/jasa yang operasionalnya berantakan, stok sering selisih, dan butuh otomatisasi penuh.",
+    shortDesc: "Otomatisasi bisnis dari kasir sampai laporan.",
+    popular: true,
+    cta: "Ambil Paket Ini",
     features: [
-      "Semua yang ada di paket Starter",
-      "Sistem Admin Buat Banyak Karyawan",
-      "Bisa Terima Booking Online Sendiri",
-      "Laporan Penjualan Keluar Otomatis",
-      "Kirim Bukti Bayar Otomatis ke WA",
-      "Keamanan Extra Biar Data Gak Ilang",
-      "Bisa Tanya Kapan Aja (Support 24/7)"
+      "Semua fitur di paket Katalog Digital PLUS:",
+      "Sistem Kasir (POS) & Laporan Otomatis",
+      "Hak Akses Multi-User (Admin & Bos)",
+      "Notifikasi Transaksi Real-time",
+      "Diajari Cara Pakai Sampai Bisa (Online)",
+      "Grup WA Khusus (Prioritas Bantuan Teknis)"
     ]
   },
-  {
-    name: "Custom Solution",
+      {
+    name: "Solusi Khusus",
     prefix: "Mulai",
     price: "Hubungi Kami",
-    desc: "Khusus buat Anda yang punya pabrik, gudang, atau cara kerja usaha yang sangat spesifik.",
-    shortDesc: "Sistem khusus untuk pabrik/gudang berskala besar.",
+    desc: "Khusus buat Anda yang butuh sistem kasir, manajemen stok gudang, pembukuan, atau aplikasi operasional yang rumit.",
+    shortDesc: "Sistem khusus untuk bantu operasional bisnis skala besar.",
     popular: false,
     customPackage: true,
     cta: "Ceritain Kebutuhan Anda",
     features: [
-      "Aplikasi Dibuat Sesuai Request",
-      "Sistem Stok Barang Besar & Kasir",
-      "Kerjaan Admin Jadi Otomatis",
-      "Bisa Dilihat Jelas Sama Pelanggan",
-      "Bisa Nyambung ke Sistem Lain",
-      "Siap Tampung Ribuan Data Tiap Hari",
-      "Ada 1 Orang Khusus Bantu Anda"
+      "Aplikasi Dibuat Khusus Sesuai Mau Anda",
+      "Sistem Manajemen Bisnis (Kasir, Stok, dll)",
+      "Kerjaan Rutin (SOP) Jadi Serba Otomatis",
+      "Bisa Nyambung ke Aplikasi Lain (WA, Bank)",
+      "Sistem Anti Lemot Walau Data Super Banyak",
+      "Rahasia Data Bisnis Dijamin Aman (NDA)",
+      "Ada 1 Tim Khusus yang Siap Bantu Anda"
     ]
   }
 ];
@@ -396,7 +416,7 @@ const portfolioData = [
     color: "#2563eb",
     featured: false,
     imageUrl: "/portfolio/najey.png",
-    liveUrl: "https://spectacular-valkyrie-7a996c.netlify.app/",
+    liveUrl: "https://najeypremium.netlify.app/",
     buttonText: "Lihat Contoh"
   },
   {
@@ -404,7 +424,7 @@ const portfolioData = [
     title: "Sekawan Putri Frozen Food",
     client: "Sekawan Putri",
     category: "Sistem Kasir & Catatan Stok",
-    desc: "Masalah: Sering rugi karena stok barang beku selisih antara buku dan gudang.\nSolusi: Dibuatkan alat kasir yang langsung memotong stok tiap ada barang yang laku.\nManfaat: Laporan jualan harian beres dalam 5 menit, dan stok selalu pas tanpa dihitung manual.",
+    desc: "Masalah: Sering rugi karena stok barang beku selisih antara buku dan gudang.\nSolusi: Dibuatkan alat kasir yang langsung memotong stok tiap ada barang yang laku.\nManfaat: Laporan jualan harian beres dalam hitungan detik, dan stok selalu pas tanpa dihitung manual.",
     shortDesc: "Kasir otomatis potong stok & laporan harian.",
     tech: ["Alat Kasir", "Cek Stok", "Laporan Keuntungan"],
     role: "Digital Partner",
@@ -412,7 +432,7 @@ const portfolioData = [
     color: "#10b981",
     featured: false,
     imageUrl: "/portfolio/nafafrozenfood.png",
-    liveUrl: "https://gleaming-biscochitos-a7a230.netlify.app/",
+    liveUrl: "https://frontend-liard-delta-56.vercel.app/",
     buttonText: "Coba Sistem"
   },
   {
@@ -428,7 +448,7 @@ const portfolioData = [
     color: "#f59e0b",
     featured: false,
     imageUrl: "/portfolio/mbakcindy.png",
-    liveUrl: "https://dulcet-strudel-4e6ab7.netlify.app/",
+    liveUrl: "https://segosambelmbakcindy.netlify.app/",
     buttonText: "Coba Sistem"
   },
   {
@@ -436,12 +456,12 @@ const portfolioData = [
     title: "Huize Jon Coffee",
     client: "Huize Jon",
     category: "Sistem Kasir & Pesanan Dapur",
-    desc: "Masalah: Pencatatan pesanan kedai kopi sering salah dan antrean menjadi panjang.\nSolusi: Sistem Point of Sales (Kasir) khusus untuk memproses pesanan dengan cepat dan akurat.\nManfaat: Transaksi pelanggan dalam hitungan detik, dan rekap jualan harian langsung jadi otomatis.\n\nDemo Account:\nRole: Owner | Password: 1234",
+    desc: "Masalah: Pencatatan pesanan kedai kopi sering salah dan antrean menjadi panjang.\nSolusi: Sistem Point of Sales (Kasir) khusus untuk memproses pesanan dengan cepat dan akurat.\nManfaat: Transaksi pelanggan dalam hitungan detik, dan rekap jualan harian langsung jadi otomatis.",
     shortDesc: "Sistem kasir super cepat khusus kedai kopi.",
     tech: ["Kasir Kedai Kopi", "Rekap Harian", "Menu Custom"],
     role: "Digital Partner",
     year: "2026",
-    color: "#a855f7",
+    color: "#ea580c",
     featured: false,
     imageUrl: "/portfolio/huizejon.png",
     liveUrl: "https://huizejoncoffee.netlify.app/",
@@ -458,10 +478,8 @@ export function HomePortfolio() {
     ? portfolioData 
     : portfolioData.filter(item => item.category === activeFilter);
     
-  // Separate featured and regular for the 1 + 5 layout
-  // If a category is selected, just show them as regular grid for simplicity
-  const featuredItem = activeFilter === "Semua" ? filteredData.find(i => i.featured) : null;
-  const gridItems = activeFilter === "Semua" ? filteredData.filter(i => !i.featured).slice(0, 5) : filteredData;
+  // We just render everything in the grid
+  const gridItems = filteredData;
 
   // Reusable Mockup Component
   const PortfolioMockup = ({ item, isLarge = false }: { item: any, isLarge?: boolean }) => {
@@ -541,62 +559,14 @@ export function HomePortfolio() {
           ))}
         </Reveal>
 
-        {/* FEATURED PROJECT */}
-        <AnimatePresence mode="wait">
-          {featuredItem && (
-            <Reveal as="div" 
-              key="featured"
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, height: 0 }}
-              className={`${styles.portfolioCard} ${styles.portfolioFeatured}`}
-            >
-              <PortfolioMockup item={featuredItem} isLarge={true} />
-              <div className={styles.portfolioContentLg}>
-                <div className={styles.portfolioHeaderLg}>
-                  <h3 className={styles.portfolioTitleLg}>{featuredItem.title}</h3>
-                  <p className={styles.portfolioClient}>
-                    <Building2 size={16} style={{ display: 'inline', marginRight: '6px' }} />
-                    {featuredItem.client} • {featuredItem.year}
-                  </p>
-                </div>
-                <p className={`${styles.portfolioDescLg} hideOnMobile`}>{featuredItem.desc}</p>
-                {featuredItem.shortDesc && <p className={`${styles.portfolioDescLg} showOnMobile`}>{featuredItem.shortDesc}</p>}
-                
-                <div className={`${styles.portfolioTech} hideOnMobile`}>
-                  {featuredItem.tech.map(t => (
-                    <span key={t} className={styles.techBadge}>{t}</span>
-                  ))}
-                </div>
-                <div style={{ marginTop: 'auto', paddingTop: '1rem' }}>
-                  {featuredItem.title === 'Sekawan Putri Frozen Food' && (
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '1rem', padding: '0.5rem', backgroundColor: 'var(--bg-primary)', borderRadius: '0.375rem', border: '1px solid var(--border-subtle)' }}>
-                      <strong>Demo Account:</strong><br/>
-                      Username: admin | Password: admin
-                    </div>
-                  )}
-                  {featuredItem.title === 'Sego Sambel Mbak Cindy' && (
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginBottom: '1rem', padding: '0.5rem', backgroundColor: 'var(--bg-primary)', borderRadius: '0.375rem', border: '1px solid var(--border-subtle)' }}>
-                      <strong>Demo Account:</strong><br/>
-                      Role: Admin | Password: 1234
-                    </div>
-                  )}
-                  {featuredItem.liveUrl ? (
-                    <a href={featuredItem.liveUrl} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
-                      <Button size="lg" style={{ width: '100%' }}>{featuredItem.buttonText || 'Live Website'} <ArrowRight size={18} /></Button>
-                    </a>
-                  ) : (
-                    <Button size="lg" style={{ width: '100%' }}>Lihat Studi Kasus <ArrowRight size={18} /></Button>
-                  )}
-                </div>
-              </div>
-            </Reveal>
-          )}
-        </AnimatePresence>
+
 
         {/* GRID PROJECTS */}
         <div className={styles.portfolioGrid}>
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="popLayout">
             {gridItems.map((item) => (
-              <Reveal as="div" 
+              <motion.div 
+                layout
                 key={item.id}
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -610,7 +580,19 @@ export function HomePortfolio() {
                   <p className={`${styles.portfolioClient} hideOnMobile`}>
                     {item.client}
                   </p>
-                  <p className={`${styles.portfolioDesc} hideOnMobile`}>{item.desc}</p>
+                  <div className={`${styles.portfolioDesc} hideOnMobile`} style={{ textAlign: 'left' }}>
+                    {item.desc.split('\n').map((line, i) => {
+                      const colonIdx = line.indexOf(': ');
+                      if (colonIdx !== -1 && ['Masalah', 'Solusi', 'Manfaat'].includes(line.substring(0, colonIdx))) {
+                        return (
+                          <div key={i} style={{ marginBottom: '0.25rem' }}>
+                            <strong>{line.substring(0, colonIdx)}:</strong> {line.substring(colonIdx + 2)}
+                          </div>
+                        );
+                      }
+                      return <div key={i} style={{ marginBottom: '0.25rem' }}>{line}</div>;
+                    })}
+                  </div>
                   {item.shortDesc && <p className={`${styles.portfolioDesc} showOnMobile`}>{item.shortDesc}</p>}
                   
                   <div className={`${styles.portfolioTech} hideOnMobile`}>
@@ -620,16 +602,23 @@ export function HomePortfolio() {
                   </div>
 
                   {item.title === 'Sekawan Putri Frozen Food' && (
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '1rem', padding: '0.5rem', backgroundColor: 'var(--bg-primary)', borderRadius: '0.375rem', border: '1px solid var(--border-subtle)' }}>
-                      <strong>Demo Account:</strong><br/>
+                    <div className={styles.demoAccountBox}>
+                      <strong>Cobain Sistemnya Langsung</strong><br/>
                       Username: admin | Password: admin
                     </div>
                   )}
                   
                   {item.title === 'Sego Sambel Mbak Cindy' && (
-                    <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '1rem', padding: '0.5rem', backgroundColor: 'var(--bg-primary)', borderRadius: '0.375rem', border: '1px solid var(--border-subtle)' }}>
-                      <strong>Demo Account:</strong><br/>
+                    <div className={styles.demoAccountBox}>
+                      <strong>Cobain Sistemnya Langsung</strong><br/>
                       Role: Admin | Password: 1234
+                    </div>
+                  )}
+                  
+                  {item.title === 'Huize Jon Coffee' && (
+                    <div className={styles.demoAccountBox}>
+                      <strong>Cobain Sistemnya Langsung</strong><br/>
+                      Role: Owner | Password: 1234
                     </div>
                   )}
 
@@ -643,7 +632,7 @@ export function HomePortfolio() {
                     </div>
                   )}
                 </div>
-              </Reveal>
+              </motion.div>
             ))}
           </AnimatePresence>
         </div>
@@ -716,10 +705,28 @@ export function HomeProcess() {
 // SOCIAL PROOF
 // ----------------------------------------------------------------------
 export function HomeSocialProof() {
-  const reviews = [
-    { text: "Dulu rekap pesanan pas rame sering kacau, banyak yang nggak ke-input. Sejak pakai sistem ini, semua pesanan dapur langsung rapi, kasir juga nggak bingung lagi nyocokin duit.", author: "Susianti Ayu", role: "Sego Sambel Mbak Cindy", img: "SA" },
-    { text: "Dulu stok sering beda sama barang yang ada di toko. Sekarang tinggal buka sistem, semuanya langsung kelihatan. Nggak perlu rekap manual lagi akhir bulan.", author: "Nafa Az Zahra", role: "Sekawan Putri", img: "NA" },
-    { text: "Kerjaan yang biasanya bikin pusing nyari sparepart sekarang jadi cepet. Pelanggan juga gampang kalau mau cek barang, jadi mekanik bisa lebih fokus ngerjain motor.", author: "Erson", role: "Sahabat Motor", img: "E" }
+    const reviews = [
+    { 
+      headline: "Rekap Pesanan Dapur Langsung Rapi",
+      text: "Dulu rekap pesanan pas rame sering kacau, banyak yang nggak ke-input. Sejak pakai sistem ini, semua pesanan dapur langsung rapi, kasir juga nggak bingung lagi nyocokin duit.", 
+            author: "Susianti Ayu", 
+      role: "Sego Sambel Mbak Cindy", 
+      logoSrc: "/logo/mbakcindy.png" 
+    },
+    { 
+      headline: "Nggak Perlu Rekap Manual Lagi",
+      text: "Dulu stok sering beda sama barang yang ada di toko. Sekarang tinggal buka sistem, semuanya langsung kelihatan. Nggak perlu rekap manual lagi akhir bulan.", 
+      author: "Nafa Az Zahra", 
+      role: "Sekawan Putri", 
+      logoSrc: "/logo/sp.png" 
+    },
+    { 
+      headline: "Mekanik Lebih Fokus Ngerjain Motor",
+      text: "Kerjaan yang biasanya bikin pusing nyari sparepart sekarang jadi cepet. Pelanggan juga gampang kalau mau cek barang, jadi mekanik bisa lebih fokus ngerjain motor.", 
+      author: "Erson", 
+      role: "Sahabat Motor", 
+      logoSrc: "/logo/sm.png" 
+    }
   ];
 
   return (
@@ -785,16 +792,23 @@ export function HomeSocialProof() {
               className={styles.reviewCard}
             >
               <div className={styles.reviewHeader}>
-                <div className={styles.avatarPremium}>{rev.img}</div>
+                <div className={styles.avatarPremium}>
+                  <Image src={rev.logoSrc} alt={rev.author} fill style={{ objectFit: 'contain', padding: '4px' }} />
+                </div>
                 <div className={styles.reviewAuthorInfo}>
                   <h4 className={styles.authorName}>{rev.author}</h4>
                   <span className={styles.authorRole}>{rev.role}</span>
-                </div>
-                <div style={{ marginLeft: 'auto', alignSelf: 'flex-start' }}>
-                  <Quote size={24} className={styles.quoteIcon} />
+                                    <div className={styles.reviewStars}>
+                    {[...Array(5)].map((_, idx) => (
+                      <Star key={idx} size={14} className={styles.starIcon} />
+                    ))}
+                  </div>
                 </div>
               </div>
-              <p className={styles.reviewText}>"{rev.text}"</p>
+              <div className={styles.reviewContentWrapper}>
+                <h5 className={styles.reviewHeadline}>&quot;{rev.headline}&quot;</h5>
+                <p className={styles.reviewText}>{rev.text}</p>
+              </div>
             </Reveal>
           ))}
         </div>
@@ -821,8 +835,8 @@ export function HomeAbout() {
                 <div className={styles.aboutImageDecor1} />
                 <div className={styles.aboutImageDecor2} />
                 <div className={styles.aboutImageInner}>
-                  <h3>NaikOmzet.id</h3>
-                  <p>Digital Agency Premium Indonesia</p>
+                                    <h3 className={styles.footerLogo}>naikomzet.web.id</h3>
+                  <p>Spesialis Sistem Bisnis Otomatis</p>
                 </div>
              </div>
           </Reveal>
@@ -833,7 +847,7 @@ export function HomeAbout() {
           >
             <h2 className={styles.aboutTitle}>Banyak Orang Jualan Aplikasi, <span className="text-gold">Tapi Lupa Masalah Aslinya.</span></h2>
             <p className={styles.aboutDesc}>
-              Banyak pemilik usaha yang kami temui mengeluh capek mengurus semuanya serba manual. Beli aplikasi yang sudah jadi, fiturnya malah bikin pusing. NaikOmzet hadir bukan untuk jualan website. Kami di sini untuk mendengarkan repotnya Anda di mana, lalu merakitkan alat bantu biar kerjaan itu lebih ringan. Gak perlu jago IT buat pakai sistem kami.
+              Banyak pengusaha capek ngurus bisnis serba manual, tapi beli aplikasi jadi malah bikin pusing. NaikOmzet hadir untuk merakit sistem yang pas dengan masalah Anda. Gak perlu jago IT, kami buat seringan mungkin.
             </p>
             
             <div className={styles.valuesGrid}>
@@ -966,7 +980,7 @@ export function HomeBottomCTA() {
           
           <div className={styles.ctaContent}>
             <h2 className={styles.ctaTitle}>Yuk, Obrolin Repotnya Bisnis Anda!</h2>
-            <p className={styles.ctaDesc}>Masih bingung harus mulai dari mana? Santai aja. Ceritain kesusahan operasional Anda ke tim kami, nanti kita cari bareng-bareng alat bantu yang paling pas buat ngeringanin kerjaan tiap hari.</p>
+            <p className={styles.ctaDesc}>Bingung mulai dari mana? Ceritain aja masalah bisnis Anda, biar kami bantu carikan solusi sistem yang paling pas.</p>
             <div className={styles.ctaActions}>
               <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <Button size="lg" style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-primary)', padding: '0 2.5rem' }}>

@@ -8,22 +8,27 @@
   z-index: 50;
   display: flex;
   align-items: center;
-  transition: all var(--transition-normal);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smoother transition */
 }
 
 .header.scrolled {
+  top: 1rem;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%) translateZ(0);
+  width: 95%;
+  max-width: 1200px;
   height: 4.5rem;
-  background-color: rgba(255, 255, 255, 0.95); /* Opaque fallback for mobile to save GPU */
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-  transform: translateZ(0); /* Hardware accelerate fixed navbar */
+  background-color: var(--bg-primary);
+  box-shadow: 6px 6px 0px 0px var(--text-primary);
+  border: 2px solid var(--text-primary);
+  border-radius: var(--radius-sm);
 }
 
 @media (min-width: 1024px) {
   .header.scrolled {
-    background-color: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
+    width: 90%;
+    background-color: var(--bg-primary);
   }
 }
 
@@ -59,11 +64,8 @@
   .nav {
     display: flex;
     align-items: center;
-    background-color: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(8px);
-    border: 1px solid var(--border-subtle);
+    background-color: transparent; /* Remove pill from nav itself since header is now the pill */
     padding: var(--space-2);
-    border-radius: var(--radius-full);
     position: relative;
   }
 }
@@ -97,7 +99,7 @@
   right: 0;
   bottom: 0;
   background-color: var(--color-primary);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-sm);
   z-index: 1;
 }
 
@@ -126,6 +128,18 @@
 }
 
 /* MOBILE NAV DRAWER */
+.closeOverlayBtn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  z-index: 60;
+  padding: var(--space-2);
+}
+
 .mobileOverlay {
   position: fixed;
   top: 0;

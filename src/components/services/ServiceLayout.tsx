@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Check, ArrowRight, ChevronDown, ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/Button/Button';
@@ -27,12 +28,16 @@ export function ServiceHero({ title, subtitle }: { title: string, subtitle: stri
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
           className={styles.heroActions}
         >
-          <Button size="lg" style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-primary)' }}>
-            Konsultasi Gratis
-          </Button>
-          <Button variant="ghost" size="lg" style={{ color: 'var(--color-secondary)' }}>
-            Lihat Portfolio
-          </Button>
+          <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ width: '100%' }}>
+            <Button size="lg" style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-primary)', width: '100%' }}>
+              Konsultasi Gratis
+            </Button>
+          </a>
+          <Link href="/#portfolio">
+            <Button variant="ghost" size="lg" style={{ color: 'var(--color-secondary)' }}>
+              Lihat Portfolio
+            </Button>
+          </Link>
         </motion.div>
       </div>
     </section>
@@ -181,13 +186,17 @@ export function ServiceCTA() {
         <p style={{ color: 'var(--text-tertiary)', marginBottom: '2rem', fontSize: '1.125rem' }}>
           Konsultasikan kebutuhan bisnis Anda sekarang. Gratis tanpa biaya tersembunyi.
         </p>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem' }}>
-          <Button size="lg" style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-primary)' }}>
-            Hubungi WhatsApp
-          </Button>
-          <Button variant="ghost" size="lg" style={{ color: 'var(--color-secondary)', border: '1px solid var(--border-strong)' }}>
-            Minta Penawaran
-          </Button>
+        <div className={styles.ctaActions}>
+          <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer">
+            <Button size="lg" style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-primary)', width: '100%' }}>
+              Hubungi WhatsApp
+            </Button>
+          </a>
+          <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20ingin%20meminta%20penawaran%20harga%20untuk%20layanan%20Anda." target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="lg" style={{ color: 'var(--color-secondary)', border: '2px solid var(--text-primary)', width: '100%' }}>
+              Minta Penawaran
+            </Button>
+          </a>
         </div>
       </div>
     </section>

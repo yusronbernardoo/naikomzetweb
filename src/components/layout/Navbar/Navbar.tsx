@@ -137,6 +137,13 @@ export function Navbar() {
             transition={{ duration: 0.3 }}
             className={styles.mobileOverlay}
           >
+            <button 
+              className={styles.closeOverlayBtn}
+              onClick={() => setIsMobileMenuOpen(false)}
+              aria-label="Close menu"
+            >
+              <X size={32} />
+            </button>
             <nav className={styles.mobileNav}>
               {navItems.map((item) => (
                 <Link 

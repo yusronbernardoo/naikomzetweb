@@ -4,9 +4,9 @@ import { Footer } from '@/components/layout/Footer/Footer';
 import { Hero } from '@/components/home/Hero/Hero';
 import { Services } from '@/components/home/Services/Services';
 import { 
-  HomePricing, HomeWhyUs, HomePortfolio, HomeProcess, 
+  HomePricing, HomePortfolio, HomeProcess, 
   HomeSocialProof, HomeAbout, HomeFaq, HomeBottomCTA,
-  HomeStats, HomeProblems
+  HomeStats, HomeNarrative
 } from '@/components/home/HomeSections/HomeSections';
 
 export const metadata: Metadata = {
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'NaikOmzet | Digital Agency Premium',
     description: 'Transformasi digital untuk bisnis Anda dengan website profesional dan sistem operasional canggih.',
-    url: 'https://naikomzet.id',
+    url: 'https://naikomzet.web.id',
     siteName: 'NaikOmzet',
     images: [
       {
-        url: 'https://naikomzet.id/og-image.jpg',
+        url: 'https://naikomzet.web.id/og-image.jpg',
         width: 1200,
         height: 630,
       },
@@ -34,7 +34,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "NaikOmzet",
-    "image": "https://naikomzet.id/logo.png",
+    "image": "https://naikomzet.web.id/logo.png",
     "description": "Digital Agency Premium spesialis UMKM dan Perusahaan",
     "address": {
       "@type": "PostalAddress",
@@ -57,10 +57,9 @@ export default function Home() {
       <Navbar />
       <main>
         <section id="hero"><Hero /></section>
-        <section id="masalah-bisnis"><HomeProblems /></section>
+        <section id="cerita-bisnis"><HomeNarrative /></section>
         <section id="paket"><HomePricing /></section>
         <section id="layanan"><Services /></section>
-        <section id="mengapa-kami"><HomeWhyUs /></section>
         <section id="portfolio"><HomePortfolio /></section>
         <section id="statistik"><HomeStats /></section>
         <section id="tentang"><HomeAbout /></section>

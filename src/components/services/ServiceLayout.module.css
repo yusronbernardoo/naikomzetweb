@@ -52,12 +52,18 @@
 .problemCard {
   background-color: var(--bg-secondary);
   padding: var(--space-6);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
+  border-radius: 4px; /* Sharp corners */
+  border: 2px solid var(--text-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--space-4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.problemCard:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--text-primary);
 }
 
 .problemIcon {
@@ -73,9 +79,9 @@
 .solutionCard {
   background-color: var(--bg-primary);
   padding: var(--space-8);
-  border-radius: var(--radius-xl);
-  border: 1px solid var(--color-accent);
-  box-shadow: var(--shadow-gold);
+  border-radius: 4px; /* Sharp corners */
+  border: 2px solid var(--text-primary);
+  box-shadow: 8px 8px 0 var(--text-primary);
   max-width: 800px;
   margin: 0 auto;
 }
@@ -116,7 +122,8 @@
   background-color: var(--color-primary);
   color: var(--color-secondary);
   padding: var(--space-3);
-  border-radius: var(--radius-md);
+  border-radius: 4px;
+  border: 2px solid var(--text-primary);
 }
 
 /* 6. Target */
@@ -130,15 +137,18 @@
 .targetPill {
   padding: var(--space-3) var(--space-6);
   background-color: var(--bg-secondary);
-  border: 1px solid var(--border-strong);
-  border-radius: var(--radius-full);
+  border: 2px solid var(--text-primary);
+  border-radius: 4px; /* Sharp corners */
+  box-shadow: 2px 2px 0 var(--text-primary);
   font-weight: 600;
-  transition: all var(--transition-fast);
+  transition: all 0.2s ease;
 }
 
 .targetPill:hover {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 var(--text-primary);
+  background-color: var(--color-accent);
+  color: var(--color-primary);
 }
 
 /* 7. Timeline */
@@ -172,14 +182,17 @@
 .testimonialCard {
   background-color: var(--bg-primary);
   padding: var(--space-6);
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--border-subtle);
+  border-radius: 4px; /* Sharp corners */
+  border: 2px solid var(--text-primary);
 }
 
 /* 10. FAQ */
 .faqItem {
-  border-bottom: 1px solid var(--border-subtle);
-  padding: var(--space-4) 0;
+  border: 2px solid var(--text-primary);
+  border-radius: 4px;
+  margin-bottom: var(--space-4);
+  background-color: var(--bg-primary);
+  overflow: hidden;
 }
 
 .faqQuestion {
@@ -188,15 +201,16 @@
   align-items: center;
   font-weight: 600;
   cursor: pointer;
+  padding: var(--space-4);
 }
 
 .faqAnswer {
-  margin-top: var(--space-2);
   color: var(--text-secondary);
   display: none;
 }
 .faqAnswer.open {
   display: block;
+  padding: 0 var(--space-4) var(--space-4);
 }
 
 /* 11. Final CTA */
@@ -205,5 +219,148 @@
   color: var(--color-secondary);
   text-align: center;
   padding: var(--space-20) 0;
-  border-top: 4px solid var(--color-accent);
+  border-top: 2px solid var(--color-accent);
+}
+
+/* ========================================================
+   MOBILE OPTIMIZATION (STRICTLY < 768px)
+   ======================================================== */
+@media (max-width: 767px) {
+  /* Global */
+  .section {
+    padding: clamp(1.5rem, 4vw, 2rem) 0;
+  }
+  
+  /* Hero */
+  .hero {
+    padding: clamp(2.5rem, 5vw, 3rem) 0 clamp(1.5rem, 4vw, 2rem);
+  }
+  .heroTitle {
+    font-size: 2rem !important;
+    margin-bottom: var(--space-2);
+  }
+  .heroSubtitle {
+    font-size: 0.95rem;
+    margin-bottom: var(--space-6);
+  }
+  .heroActions {
+    flex-direction: column;
+    gap: var(--space-3);
+    width: 100%;
+  }
+  .heroActions > *, .heroActions button {
+    width: 100%;
+  }
+
+  /* Problems */
+  .problemTitle {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-6);
+  }
+  .problemCard {
+    padding: 1rem;
+    gap: var(--space-2);
+  }
+  .problemCard h3 {
+    font-size: 1rem !important;
+  }
+  .problemCard p {
+    font-size: 0.85rem !important;
+  }
+
+  /* Solution & Benefits */
+  .solutionCard {
+    padding: 1rem;
+  }
+  .solutionCard h2 {
+    font-size: 1.5rem !important;
+  }
+  .solutionCard p {
+    font-size: 0.85rem !important;
+    margin-bottom: 1rem !important;
+  }
+  .benefitsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+  .benefitItem {
+    font-size: 0.85rem;
+  }
+
+  /* Features */
+  .featuresGrid {
+    gap: var(--space-4);
+  }
+  .featureCard h3 {
+    font-size: 1rem !important;
+  }
+  .featureCard p {
+    font-size: 0.85rem !important;
+  }
+
+  /* Target Audience */
+  .targetGrid {
+    gap: var(--space-2);
+  }
+  .targetPill {
+    padding: var(--space-2) var(--space-4);
+    font-size: 0.85rem;
+  }
+
+  /* Timeline */
+  .timeline {
+    gap: var(--space-4);
+  }
+  .timelineItem {
+    gap: var(--space-3);
+  }
+  .timelineNumber {
+    width: 32px;
+    height: 32px;
+    font-size: 0.85rem;
+  }
+  .timelineItem h3 {
+    font-size: 1rem !important;
+  }
+  .timelineItem p {
+    font-size: 0.85rem !important;
+  }
+
+  /* FAQ */
+  .faqQuestion {
+    font-size: 0.95rem;
+    padding: var(--space-3);
+  }
+  .faqAnswer.open {
+    padding: 0 var(--space-3) var(--space-3);
+    font-size: 0.85rem;
+  }
+
+  /* Final CTA */
+  .finalCta {
+    padding: clamp(2rem, 5vw, 3rem) 0;
+  }
+  .finalCta h2 {
+    font-size: 1.75rem !important;
+  }
+  .finalCta p {
+    font-size: 0.95rem !important;
+  }
+}
+
+.ctaActions {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (max-width: 767px) {
+  .ctaActions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .ctaActions > *, .ctaActions button {
+    width: 100%;
+  }
 }

@@ -1,15 +1,15 @@
 .card {
   background-color: var(--bg-primary);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-xl);
+  border: 2px solid var(--text-primary);
+  border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
-  transition: all var(--transition-normal);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
   box-shadow: var(--shadow-md);
-  border-color: var(--border-strong);
+  transform: translate(-2px, -2px);
 }
 
 .header {
