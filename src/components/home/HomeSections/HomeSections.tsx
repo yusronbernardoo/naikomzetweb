@@ -619,7 +619,7 @@ export function HomePortfolio() {
                   {item.title === 'Sekawan Putri Frozen Food' && (
                     <div className={styles.demoAccountBox}>
                       <strong>Cobain Sistemnya Langsung</strong><br/>
-                      Username: admin | Password: admin
+                      Username: owner | Password: owner
                     </div>
                   )}
                   
