@@ -147,10 +147,11 @@ html { scroll-behavior: smooth; }
   #portfolio { order: 5; }
   #statistik { order: 6; }
   #tentang { order: 7; }
-  #testimoni { order: 8; }
-  #proses-kerja { order: 9; }
-  #faq { order: 10; }
-  #cta { order: 11; }
+  #tim { order: 8; }
+  #testimoni { order: 9; }
+  #proses-kerja { order: 10; }
+  #faq { order: 11; }
+  #cta { order: 12; }
   /* Removed duplicate old reordering rules */
 }
 

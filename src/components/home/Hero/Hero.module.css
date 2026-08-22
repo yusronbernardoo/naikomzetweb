@@ -457,15 +457,11 @@
   .actions {
     margin-top: 0;
     width: 100%;
+    gap: 12px;
   }
   .actions > * {
     width: 100%;
     display: flex;
-    margin-bottom: 1rem;
-    margin-right: 0;
-  }
-  .actions > *:last-child {
-    margin-bottom: 0;
   }
   .actions button {
     width: 100%;

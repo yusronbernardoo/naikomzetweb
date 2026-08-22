@@ -466,6 +466,21 @@ const portfolioData = [
     imageUrl: "/portfolio/huizejon.png",
     liveUrl: "https://huizejoncoffee.netlify.app/",
     buttonText: "Coba Sistem"
+  },
+  {
+    id: 6,
+    title: "Army Trans Malang",
+    client: "Army Trans",
+    category: "Profil Usaha Online",
+    desc: "Masalah: Sulit menjangkau pelanggan baru secara online untuk jasa sewa mobil.\nSolusi: Dibuatkan website profil usaha yang profesional, lengkap dengan katalog armada.\nManfaat: Pelanggan lebih percaya dan mudah melakukan pemesanan sewa mobil.",
+    shortDesc: "Website rental mobil profesional agar pelanggan lebih percaya.",
+    tech: ["Web Profil", "SEO Basic", "Pesan via WA"],
+    year: "2024",
+    color: "#43953a",
+    featured: false,
+    imageUrl: "/portfolio/malangarmy.webp",
+    liveUrl: "https://malangarmy.com/",
+    buttonText: "Lihat Web"
   }
 ];
 

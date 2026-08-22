@@ -8,6 +8,7 @@ import {
   HomeSocialProof, HomeAbout, HomeFaq, HomeBottomCTA,
   HomeStats, HomeNarrative
 } from '@/components/home/HomeSections/HomeSections';
+import { HomeTeam } from '@/components/home/HomeTeam/HomeTeam';
 
 export const metadata: Metadata = {
   title: 'NaikOmzet | Digital Agency Premium untuk UMKM',
@@ -63,6 +64,7 @@ export default function Home() {
         <section id="portfolio"><HomePortfolio /></section>
         <section id="statistik"><HomeStats /></section>
         <section id="tentang"><HomeAbout /></section>
+        <section id="tim"><HomeTeam /></section>
         <section id="testimoni"><HomeSocialProof /></section>
         <section id="proses-kerja"><HomeProcess /></section>
         <section id="faq"><HomeFaq /></section>
