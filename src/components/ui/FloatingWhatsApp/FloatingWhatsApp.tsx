@@ -4,7 +4,7 @@ import styles from './FloatingWhatsApp.module.css';
 export function FloatingWhatsApp() {
   return (
     <a 
-      href="https://wa.me/6282336756037?text=Halo%20NaikOmzet,%20saya%20tertarik%20dengan%20layanan%20Anda."
+      href="https://wa.me/6285713900583?text=Halo%20NaikOmzet,%20saya%20tertarik%20dengan%20layanan%20Anda."
       target="_blank"
       rel="noopener noreferrer"
       className={styles.floatingButton}

@@ -109,7 +109,7 @@ export function Navbar() {
 
           <div className={styles.actions}>
             <div className="hidden lg:block">
-              <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+              <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <Button variant="primary" size="sm" style={{ backgroundColor: 'var(--color-primary)', color: 'var(--color-secondary)' }}>
                   Konsultasi Gratis
                 </Button>
@@ -156,7 +156,7 @@ export function Navbar() {
                 </Link>
               ))}
               <div style={{ marginTop: '2rem' }}>
-                <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" onClick={handleMobileNavClick} style={{ textDecoration: 'none' }}>
+                <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" onClick={handleMobileNavClick} style={{ textDecoration: 'none' }}>
                   <Button size="lg" style={{ backgroundColor: 'var(--color-primary)', color: 'var(--color-secondary)' }}>
                     Konsultasi Gratis
                   </Button>

@@ -42,7 +42,7 @@ export function Footer() {
             <a href="https://instagram.com/naik.omzet" target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="Instagram">
               <InstagramIcon />
             </a>
-            <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="WhatsApp">
+            <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" className={styles.socialLink} aria-label="WhatsApp">
               <WhatsAppIcon />
             </a>
           </div>
@@ -74,7 +74,7 @@ export function Footer() {
           <ul className={styles.contactList}>
             <li className={styles.contactItem}>
               <WhatsAppIcon size={16} className={styles.contactIcon} />
-              <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." className={styles.link} target="_blank" rel="noopener noreferrer">082336756037 (WA)</a>
+              <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." className={styles.link} target="_blank" rel="noopener noreferrer">085713900583 (WA)</a>
             </li>
             <li className={styles.contactItem}>
               <Mail size={16} className={styles.contactIcon} />

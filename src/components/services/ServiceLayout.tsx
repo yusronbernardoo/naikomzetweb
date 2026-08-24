@@ -28,7 +28,7 @@ export function ServiceHero({ title, subtitle }: { title: string, subtitle: stri
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
           className={styles.heroActions}
         >
-          <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ width: '100%' }}>
+          <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ width: '100%' }}>
             <Button size="lg" style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-primary)', width: '100%' }}>
               Konsultasi Gratis
             </Button>
@@ -187,12 +187,12 @@ export function ServiceCTA() {
           Konsultasikan kebutuhan bisnis Anda sekarang. Gratis tanpa biaya tersembunyi.
         </p>
         <div className={styles.ctaActions}>
-          <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer">
             <Button size="lg" style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-primary)', width: '100%' }}>
               Hubungi WhatsApp
             </Button>
           </a>
-          <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20ingin%20meminta%20penawaran%20harga%20untuk%20layanan%20Anda." target="_blank" rel="noopener noreferrer">
+          <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20ingin%20meminta%20penawaran%20harga%20untuk%20layanan%20Anda." target="_blank" rel="noopener noreferrer">
             <Button variant="ghost" size="lg" style={{ color: 'var(--color-secondary)', border: '2px solid var(--text-primary)', width: '100%' }}>
               Minta Penawaran
             </Button>

@@ -343,7 +343,7 @@ export function HomePricing() {
                 </ul>
               </div>
               <div className={styles.pricingFooter}>
-                <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ width: '100%', textDecoration: 'none' }}>
+                <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ width: '100%', textDecoration: 'none' }}>
                   <Button 
                     variant={plan.popular ? 'primary' : 'outline'} 
                     size="lg" 
@@ -875,7 +875,7 @@ export function HomeAbout() {
             </div>
 
             <div style={{ marginTop: '2.5rem' }}>
-              <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+              <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <Button size="lg">
                   Hubungi Tim Kami <ArrowRight size={18} />
                 </Button>
@@ -997,12 +997,12 @@ export function HomeBottomCTA() {
             <h2 className={styles.ctaTitle}>Yuk, Obrolin Repotnya Bisnis Anda!</h2>
             <p className={styles.ctaDesc}>Bingung mulai dari mana? Ceritain aja masalah bisnis Anda, biar kami bantu carikan solusi sistem yang paling pas.</p>
             <div className={styles.ctaActions}>
-              <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+              <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <Button size="lg" style={{ backgroundColor: 'var(--color-accent)', color: 'var(--color-primary)', padding: '0 2.5rem' }}>
                   Ceritakan Kesusahan Bisnis Anda <ArrowRight size={18} />
                 </Button>
               </a>
-              <a href="https://wa.me/6282336756037?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
+              <a href="https://wa.me/6285713900583?text=Halo%20NaikOmzet%20%F0%9F%91%8B%0A%0ASaya%20tertarik%20dengan%20sistem%20yang%20Anda%20buat.%0A%0ASaya%20ingin%20konsultasi%20mengenai%20kebutuhan%20bisnis%20saya." target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none' }}>
                 <Button variant="outline" size="lg" style={{ borderColor: 'rgba(255,255,255,0.3)', color: 'var(--color-secondary)' }}>
                   Ngobrol Dulu via WA
                 </Button>
