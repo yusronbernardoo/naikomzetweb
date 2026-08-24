@@ -22,7 +22,7 @@
 
   /* Typography */
   --font-heading: var(--font-poppins), 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-body: var(--font-inter), 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-body: var(--font-dm-sans), 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   
   /* Spacing */
   --space-1: 0.25rem;
