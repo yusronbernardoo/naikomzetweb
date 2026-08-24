@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Poppins } from "next/font/google";
+import { DM_Sans, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -8,8 +8,8 @@ const dmSans = DM_Sans({
   weight: ["400", "500", "700"],
 });
 
-const poppins = Poppins({
-  variable: "--font-poppins",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${dmSans.variable} ${poppins.variable}`}>
+    <html lang="id" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
       <body>
         {children}
         <FloatingWhatsApp />
