@@ -37,7 +37,7 @@ export function Hero() {
         >
 
           <motion.h1 variants={itemVariants} className={styles.title}>
-            Bisnis Makin Ramai, Tapi Operasional Malah <span className={styles.highlight}>Makin Berantakan?</span>
+            Bisnis Makin Ramai, Tapi Operasional Malah Makin Berantakan?
           </motion.h1>
 
           <motion.p variants={itemVariants} className={`${styles.description} hideOnMobile`}>
