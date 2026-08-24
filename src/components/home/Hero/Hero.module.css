@@ -127,9 +127,6 @@
 
 .highlight {
   color: var(--color-accent);
-  background: linear-gradient(90deg, #d4af37 0%, #f3e5ab 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .description {
