@@ -21,7 +21,7 @@
   --text-light: #ffffff; /* Text on dark backgrounds */
 
   /* Typography */
-  --font-heading: var(--font-space-grotesk), 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-heading: var(--font-montserrat), 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   --font-body: var(--font-dm-sans), 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   
   /* Spacing */

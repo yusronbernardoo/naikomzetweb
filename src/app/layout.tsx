@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Space_Grotesk } from "next/font/google";
+import { DM_Sans, Montserrat } from "next/font/google";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -8,8 +8,8 @@ const dmSans = DM_Sans({
   weight: ["400", "500", "700"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className={`${dmSans.variable} ${spaceGrotesk.variable}`}>
+    <html lang="id" className={`${dmSans.variable} ${montserrat.variable}`}>
       <body>
         {children}
         <FloatingWhatsApp />
