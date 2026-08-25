@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import Link from 'next/link';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight, TrendingUp, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/Button/Button';
@@ -53,11 +53,11 @@ export function Hero() {
                 Ceritakan Kesusahan Bisnis Anda <ArrowRight size={18} />
               </Button>
             </a>
-            <Link href="/#portfolio" scroll={true}>
+            <a href="/#portfolio">
               <Button variant="outline" size="lg" style={{ borderColor: 'rgba(255,255,255,0.2)', color: 'var(--color-secondary)' }}>
                 Lihat Contoh Sistem
               </Button>
-            </Link>
+            </a>
           </motion.div>
         </motion.div>
 

@@ -542,7 +542,7 @@ export function HomePortfolio() {
   };
 
   return (
-    <section id="portfolio" className={styles.section}>
+    <section className={styles.section}>
       <div className="container">
         <div className={styles.sectionHeader}>
           <Reveal as="h2" 

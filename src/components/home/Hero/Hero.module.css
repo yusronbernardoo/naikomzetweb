@@ -149,6 +149,8 @@
   gap: var(--space-4);
   width: 100%;
   max-width: 400px;
+  position: relative;
+  z-index: 20;
 }
 
 @media (min-width: 640px) {
