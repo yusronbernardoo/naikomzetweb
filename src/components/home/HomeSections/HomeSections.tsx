@@ -472,19 +472,36 @@ const portfolioData = [
     title: "Army Trans Malang",
     client: "Army Trans",
     category: "Profil Usaha Online",
-    desc: "Masalah: Sulit menjangkau pelanggan baru secara online untuk jasa sewa mobil.\nSolusi: Dibuatkan website profil usaha yang profesional, lengkap dengan katalog armada.\nManfaat: Pelanggan lebih percaya dan mudah melakukan pemesanan sewa mobil.",
-    shortDesc: "Website rental mobil profesional agar pelanggan lebih percaya.",
-    tech: ["Web Profil", "SEO Basic", "Pesan via WA"],
+    desc: "Masalah: Sulit mendapat kepercayaan pelanggan baru karena belum punya profil resmi di internet.\nSolusi: Dibuatkan website resmi yang menampilkan layanan travel, daftar harga, dan kontak yang bisa langsung dihubungi.\nManfaat: Pelanggan lebih percaya, mudah menemukan informasi layanan, dan pemesanan travel jadi lebih terpusat.",
+    shortDesc: "Website profil resmi untuk layanan travel.",
+    tech: ["Profil Perusahaan", "Katalog Layanan", "Kontak Terintegrasi"],
+    role: "Digital Partner",
     year: "2024",
     color: "#43953a",
     featured: false,
     imageUrl: "/portfolio/malangarmy.webp",
     liveUrl: "https://malangarmy.com/",
     buttonText: "Lihat Web"
+  },
+  {
+    id: 7,
+    title: "REAL.CO Hair Studio & Mini Cafe",
+    client: "REAL.CO",
+    category: "Sistem Reservasi Jadwal",
+    desc: "Masalah: Pelanggan sering bentrok jadwal cukur dan admin repot mengatur jadwal kosong secara manual.\nSolusi: Dibuatkan sistem booking online di mana pelanggan bisa memilih jadwal yang masih kosong dan otomatis masuk ke Google Calendar.\nManfaat: Tidak ada lagi jadwal bentrok, ada notifikasi otomatis, dan admin tidak perlu mencatat jadwal secara manual.",
+    shortDesc: "Sistem booking jadwal cukur otomatis masuk kalender.",
+    tech: ["Booking Online", "Cek Jadwal Otomatis", "Integrasi Kalender"],
+    role: "Digital Partner",
+    year: "2026",
+    color: "#d4af37",
+    featured: true,
+    imageUrl: "/portfolio/realco.jpg",
+    liveUrl: "https://realcohairstudiocafee.netlify.app/",
+    buttonText: "Lihat Web"
   }
 ];
 
-const categories = ["Semua", "Profil Usaha Online", "Sistem Pemesanan Online", "Sistem Kasir & Catatan Stok", "Sistem Kasir & Pesanan Dapur"];
+const categories = ["Semua", "Profil Usaha Online", "Sistem Pemesanan Online", "Sistem Kasir & Catatan Stok", "Sistem Kasir & Pesanan Dapur", "Sistem Reservasi Jadwal"];
 
 export function HomePortfolio() {
   const [activeFilter, setActiveFilter] = useState("Semua");
