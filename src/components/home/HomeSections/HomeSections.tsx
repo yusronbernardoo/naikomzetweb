@@ -495,7 +495,7 @@ const portfolioData = [
     year: "2026",
     color: "#d4af37",
     featured: true,
-    imageUrl: "/portfolio/realco.jpg",
+    imageUrl: "/portfolio/realco.png",
     liveUrl: "https://realcohairstudiocafee.netlify.app/",
     buttonText: "Lihat Web"
   }
