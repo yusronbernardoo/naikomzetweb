@@ -416,7 +416,7 @@ const portfolioData = [
     color: "#2563eb",
     featured: false,
     imageUrl: "/portfolio/najey.png",
-    liveUrl: "https://najeypremium.netlify.app/",
+    liveUrl: "https://najeydigitalapp.my.id/",
     buttonText: "Lihat Contoh"
   },
   {
